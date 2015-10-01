@@ -36,23 +36,23 @@ namespace JeremyAnsel.Xwa.Dat
 
         public IList<DatImage> Images { get; private set; }
 
-        public void ConvertToType(DatImageFormats format)
+        public void ConvertToType(DatImageFormat format)
         {
             switch (format)
             {
-                case DatImageFormats.Format25:
+                case DatImageFormat.Format25:
                     this.ConvertToFormat25();
                     break;
 
-                case DatImageFormats.Format24:
+                case DatImageFormat.Format24:
                     this.ConvertToFormat24();
                     break;
 
-                case DatImageFormats.Format7:
+                case DatImageFormat.Format7:
                     this.ConvertToFormat7();
                     break;
 
-                case DatImageFormats.Format23:
+                case DatImageFormat.Format23:
                     this.ConvertToFormat23();
                     break;
 

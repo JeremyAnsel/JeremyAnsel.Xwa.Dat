@@ -57,7 +57,7 @@
     <Compile Include="DatFile.cs" />
     <Compile Include="DatGroup.cs" />
     <Compile Include="DatImage.cs" />
-    <Compile Include="DatImageFormats.cs" />
+    <Compile Include="DatImageFormat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

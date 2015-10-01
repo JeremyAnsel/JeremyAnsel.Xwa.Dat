@@ -100,7 +100,7 @@ namespace JeremyAnsel.Xwa.Dat
                         {
                             var image = new DatImage();
 
-                            image.Format = (DatImageFormats)file.ReadInt16();
+                            image.Format = (DatImageFormat)file.ReadInt16();
                             image.Width = file.ReadInt16();
                             image.Height = file.ReadInt16();
                             file.ReadUInt16(); // color key
@@ -223,23 +223,23 @@ namespace JeremyAnsel.Xwa.Dat
             }
         }
 
-        public void ConvertToFormat(DatImageFormats format)
+        public void ConvertToFormat(DatImageFormat format)
         {
             switch (format)
             {
-                case DatImageFormats.Format25:
+                case DatImageFormat.Format25:
                     this.ConvertToFormat25();
                     break;
 
-                case DatImageFormats.Format24:
+                case DatImageFormat.Format24:
                     this.ConvertToFormat24();
                     break;
 
-                case DatImageFormats.Format7:
+                case DatImageFormat.Format7:
                     this.ConvertToFormat7();
                     break;
 
-                case DatImageFormats.Format23:
+                case DatImageFormat.Format23:
                     this.ConvertToFormat23();
                     break;
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace JeremyAnsel.Xwa.Dat
 {
     [SuppressMessage("Microsoft.Design", "CA1008:EnumsShouldHaveZeroValue", Justification = "Reviewed")]
-    public enum DatImageFormats
+    public enum DatImageFormat
     {
         Format7 = 7,
 

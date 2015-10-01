@@ -22,7 +22,7 @@ namespace JeremyAnsel.Xwa.Dat
             this.ImageId = imageId;
         }
 
-        public DatImageFormats Format { get; internal set; }
+        public DatImageFormat Format { get; internal set; }
 
         public short Width { get; internal set; }
 
@@ -49,16 +49,16 @@ namespace JeremyAnsel.Xwa.Dat
         {
             switch (this.Format)
             {
-                case DatImageFormats.Format25:
+                case DatImageFormat.Format25:
                     return this.ReadFormat25();
 
-                case DatImageFormats.Format24:
+                case DatImageFormat.Format24:
                     return this.ReadFormat24();
 
-                case DatImageFormats.Format7:
+                case DatImageFormat.Format7:
                     return this.ReadFormat7();
 
-                case DatImageFormats.Format23:
+                case DatImageFormat.Format23:
                     return this.ReadFormat23();
             }
 
@@ -339,7 +339,7 @@ namespace JeremyAnsel.Xwa.Dat
                             }
                         }
 
-                        this.Format = DatImageFormats.Format25;
+                        this.Format = DatImageFormat.Format25;
                         this.Width = (short)file.Width;
                         this.Height = (short)file.Height;
                         this.ColorsCount = 0;
@@ -352,7 +352,7 @@ namespace JeremyAnsel.Xwa.Dat
             }
         }
 
-        public void ReplaceWithMemory(DatImageFormats format, short width, short height, short colorsCount, byte[] data)
+        public void ReplaceWithMemory(DatImageFormat format, short width, short height, short colorsCount, byte[] data)
         {
             this.Format = format;
             this.Width = width;
@@ -370,7 +370,7 @@ namespace JeremyAnsel.Xwa.Dat
             return image;
         }
 
-        public static DatImage FromMemory(short groupId, short imageId, DatImageFormats format, short width, short height, short colorsCount, byte[] rawData)
+        public static DatImage FromMemory(short groupId, short imageId, DatImageFormat format, short width, short height, short colorsCount, byte[] rawData)
         {
             DatImage image = new DatImage(groupId, imageId);
 
@@ -379,23 +379,23 @@ namespace JeremyAnsel.Xwa.Dat
             return image;
         }
 
-        public void ConvertToFormat(DatImageFormats format)
+        public void ConvertToFormat(DatImageFormat format)
         {
             switch (format)
             {
-                case DatImageFormats.Format25:
+                case DatImageFormat.Format25:
                     this.ConvertToFormat25();
                     break;
 
-                case DatImageFormats.Format24:
+                case DatImageFormat.Format24:
                     this.ConvertToFormat24();
                     break;
 
-                case DatImageFormats.Format7:
+                case DatImageFormat.Format7:
                     this.ConvertToFormat7();
                     break;
 
-                case DatImageFormats.Format23:
+                case DatImageFormat.Format23:
                     this.ConvertToFormat23();
                     break;
 
@@ -406,7 +406,7 @@ namespace JeremyAnsel.Xwa.Dat
 
         public void ConvertToFormat25()
         {
-            if (this.Format == DatImageFormats.Format25)
+            if (this.Format == DatImageFormat.Format25)
             {
                 return;
             }
@@ -418,14 +418,14 @@ namespace JeremyAnsel.Xwa.Dat
                 return;
             }
 
-            this.Format = DatImageFormats.Format25;
+            this.Format = DatImageFormat.Format25;
             this.ColorsCount = 0;
             this.rawData = data;
         }
 
         public void ConvertToFormat24()
         {
-            if (this.Format == DatImageFormats.Format24)
+            if (this.Format == DatImageFormat.Format24)
             {
                 return;
             }
@@ -501,7 +501,7 @@ namespace JeremyAnsel.Xwa.Dat
                 imageData[palette.Length + i * 2 + 1] = data[i * 4 + 3];
             }
 
-            this.Format = DatImageFormats.Format24;
+            this.Format = DatImageFormat.Format24;
             this.ColorsCount = (short)(palette.Length / 3);
             this.rawData = imageData;
         }
@@ -509,14 +509,14 @@ namespace JeremyAnsel.Xwa.Dat
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Reviewed")]
         public void ConvertToFormat7()
         {
-            if (this.Format == DatImageFormats.Format7)
+            if (this.Format == DatImageFormat.Format7)
             {
                 return;
             }
 
             this.ConvertToFormat24();
 
-            if (this.Format != DatImageFormats.Format24)
+            if (this.Format != DatImageFormat.Format24)
             {
                 return;
             }
@@ -635,21 +635,21 @@ namespace JeremyAnsel.Xwa.Dat
             Array.Copy(this.rawData, raw, this.ColorsCount * 3);
             Array.Copy(linesData, 0, raw, this.ColorsCount * 3, linesData.Length);
 
-            this.Format = DatImageFormats.Format7;
+            this.Format = DatImageFormat.Format7;
             this.rawData = raw;
         }
 
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Reviewed")]
         public void ConvertToFormat23()
         {
-            if (this.Format == DatImageFormats.Format23)
+            if (this.Format == DatImageFormat.Format23)
             {
                 return;
             }
 
             this.ConvertToFormat24();
 
-            if (this.Format != DatImageFormats.Format24)
+            if (this.Format != DatImageFormat.Format24)
             {
                 return;
             }
@@ -796,13 +796,13 @@ namespace JeremyAnsel.Xwa.Dat
             Array.Copy(this.rawData, raw, this.ColorsCount * 3);
             Array.Copy(linesData, 0, raw, this.ColorsCount * 3, linesData.Length);
 
-            this.Format = DatImageFormats.Format23;
+            this.Format = DatImageFormat.Format23;
             this.rawData = raw;
         }
 
         public void MakeColorTransparent(byte red, byte green, byte blue)
         {
-            DatImageFormats format = this.Format;
+            DatImageFormat format = this.Format;
 
             var data = this.GetImageData();
 
@@ -825,7 +825,7 @@ namespace JeremyAnsel.Xwa.Dat
                 }
             }
 
-            this.Format = DatImageFormats.Format25;
+            this.Format = DatImageFormat.Format25;
             this.ColorsCount = 0;
             this.rawData = data;
 
@@ -834,7 +834,7 @@ namespace JeremyAnsel.Xwa.Dat
 
         public void MakeColorTransparent(byte red0, byte green0, byte blue0, byte red1, byte green1, byte blue1)
         {
-            DatImageFormats format = this.Format;
+            DatImageFormat format = this.Format;
 
             var data = this.GetImageData();
 
@@ -857,7 +857,7 @@ namespace JeremyAnsel.Xwa.Dat
                 }
             }
 
-            this.Format = DatImageFormats.Format25;
+            this.Format = DatImageFormat.Format25;
             this.ColorsCount = 0;
             this.rawData = data;
 
