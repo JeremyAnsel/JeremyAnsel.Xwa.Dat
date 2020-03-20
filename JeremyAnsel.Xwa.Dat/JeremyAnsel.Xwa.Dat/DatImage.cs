@@ -268,7 +268,7 @@ namespace JeremyAnsel.Xwa.Dat
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException("fileName");
+                    throw new ArgumentOutOfRangeException(nameof(fileName));
             }
 
             var data = this.GetImageData();
@@ -312,12 +312,12 @@ namespace JeremyAnsel.Xwa.Dat
                     {
                         if (file.Width > short.MaxValue)
                         {
-                            throw new ArgumentOutOfRangeException("fileName");
+                            throw new ArgumentOutOfRangeException(nameof(fileName));
                         }
 
                         if (file.Height > short.MaxValue)
                         {
-                            throw new ArgumentOutOfRangeException("fileName");
+                            throw new ArgumentOutOfRangeException(nameof(fileName));
                         }
 
                         var rect = new Rectangle(0, 0, file.Width, file.Height);
@@ -348,7 +348,7 @@ namespace JeremyAnsel.Xwa.Dat
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException("fileName");
+                    throw new ArgumentOutOfRangeException(nameof(fileName));
             }
         }
 
@@ -400,7 +400,7 @@ namespace JeremyAnsel.Xwa.Dat
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException("format");
+                    throw new ArgumentOutOfRangeException(nameof(format));
             }
         }
 
@@ -523,7 +523,7 @@ namespace JeremyAnsel.Xwa.Dat
 
             int alphaValue = 0x80;
 
-            Action<List<Tuple<bool, ArraySegment<byte>>>, byte[], bool, int, int> addSegment = (values, array, t, c, n) =>
+            void addSegment(List<Tuple<bool, ArraySegment<byte>>> values, byte[] array, bool t, int c, int n)
             {
                 while (n > 0)
                 {
@@ -544,15 +544,15 @@ namespace JeremyAnsel.Xwa.Dat
                         n -= 127;
                     }
                 }
-            };
+            }
 
-            Func<ArraySegment<byte>, List<Tuple<bool, ArraySegment<byte>>>> parseLine = t =>
+            List<Tuple<bool, ArraySegment<byte>>> parseLine(ArraySegment<byte> t)
             {
                 int tLength = t.Offset + t.Count;
 
                 var values = new List<Tuple<bool, ArraySegment<byte>>>();
 
-                for (int i = t.Offset; i < tLength; )
+                for (int i = t.Offset; i < tLength;)
                 {
                     int c;
                     int n;
@@ -589,7 +589,7 @@ namespace JeremyAnsel.Xwa.Dat
                 }
 
                 return values;
-            };
+            }
 
             var lines = Enumerable.Range(0, this.Height)
                 .Select(t => new ArraySegment<byte>(this.rawData, this.ColorsCount * 3 + t * this.Width * 2, this.Width * 2))
@@ -601,11 +601,12 @@ namespace JeremyAnsel.Xwa.Dat
                 return;
             }
 
-            Func<List<Tuple<bool, ArraySegment<byte>>>, List<byte>> writeLine = t =>
+            List<byte> writeLine(List<Tuple<bool, ArraySegment<byte>>> t)
             {
-                List<byte> data = new List<byte>();
-
-                data.Add((byte)t.Count);
+                List<byte> data = new List<byte>
+                {
+                    (byte)t.Count
+                };
 
                 foreach (var block in t)
                 {
@@ -625,7 +626,7 @@ namespace JeremyAnsel.Xwa.Dat
                 }
 
                 return data;
-            };
+            }
 
             var linesData = lines.SelectMany(t => writeLine(t))
                 .ToArray();
@@ -654,7 +655,7 @@ namespace JeremyAnsel.Xwa.Dat
                 return;
             }
 
-            Action<List<Tuple<byte, ArraySegment<byte>>>, byte[], byte, int, int> addSegment = (values, array, t, c, n) =>
+            void addSegment(List<Tuple<byte, ArraySegment<byte>>> values, byte[] array, byte t, int c, int n)
             {
                 while (n > 0)
                 {
@@ -675,15 +676,15 @@ namespace JeremyAnsel.Xwa.Dat
                         n -= 63;
                     }
                 }
-            };
+            }
 
-            Func<ArraySegment<byte>, List<Tuple<byte, ArraySegment<byte>>>> parseLine = t =>
+            List<Tuple<byte, ArraySegment<byte>>> parseLine(ArraySegment<byte> t)
             {
                 int tLength = t.Offset + t.Count;
 
                 var values = new List<Tuple<byte, ArraySegment<byte>>>();
 
-                for (int i = t.Offset; i < tLength; )
+                for (int i = t.Offset; i < tLength;)
                 {
                     int c;
                     int n;
@@ -740,7 +741,7 @@ namespace JeremyAnsel.Xwa.Dat
                 }
 
                 return values;
-            };
+            }
 
             var lines = Enumerable.Range(0, this.Height)
                 .Select(t => new ArraySegment<byte>(this.rawData, this.ColorsCount * 3 + t * this.Width * 2, this.Width * 2))
@@ -752,11 +753,12 @@ namespace JeremyAnsel.Xwa.Dat
                 return;
             }
 
-            Func<List<Tuple<byte, ArraySegment<byte>>>, List<byte>> writeLine = t =>
+            List<byte> writeLine(List<Tuple<byte, ArraySegment<byte>>> t)
             {
-                List<byte> data = new List<byte>();
-
-                data.Add((byte)t.Count);
+                List<byte> data = new List<byte>
+                {
+                    (byte)t.Count
+                };
 
                 foreach (var block in t)
                 {
@@ -786,7 +788,7 @@ namespace JeremyAnsel.Xwa.Dat
                 }
 
                 return data;
-            };
+            }
 
             var linesData = lines.SelectMany(t => writeLine(t))
                 .ToArray();

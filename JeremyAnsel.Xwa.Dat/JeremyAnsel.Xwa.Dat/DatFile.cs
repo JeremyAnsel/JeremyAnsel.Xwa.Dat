@@ -12,14 +12,9 @@ namespace JeremyAnsel.Xwa.Dat
     {
         private const long Signature = 0x5602235657062357;
 
-        public DatFile()
-        {
-            this.Groups = new List<DatGroup>();
-        }
-
         public string FileName { get; private set; }
 
-        public IList<DatGroup> Groups { get; private set; }
+        public IList<DatGroup> Groups { get; } = new List<DatGroup>();
 
         public IEnumerable<DatImage> Images
         {
@@ -29,11 +24,13 @@ namespace JeremyAnsel.Xwa.Dat
             }
         }
 
+        [SuppressMessage("Style", "IDE0017:Simplifier l'initialisation des objets", Justification = "Reviewed.")]
         public static DatFile FromFile(string fileName)
         {
-            var dat = new DatFile();
-
-            dat.FileName = fileName;
+            var dat = new DatFile
+            {
+                FileName = fileName
+            };
 
             FileStream filestream = null;
 
@@ -49,7 +46,7 @@ namespace JeremyAnsel.Xwa.Dat
 
                     if (signature != DatFile.Signature)
                     {
-                        throw new ArgumentException("invalid file", "fileName");
+                        throw new InvalidDataException();
                     }
 
                     short groupFormat = file.ReadInt16();
@@ -81,7 +78,7 @@ namespace JeremyAnsel.Xwa.Dat
 
                             if (m0C != 0 || m10 != 0)
                             {
-                                throw new InvalidDataException("unknown data found");
+                                throw new InvalidDataException();
                             }
                         }
 
@@ -112,7 +109,7 @@ namespace JeremyAnsel.Xwa.Dat
 
                             if (dataLength < 0x2C)
                             {
-                                throw new InvalidDataException("image header not found");
+                                throw new InvalidDataException();
                             }
 
                             file.BaseStream.Position += 0x18;
@@ -244,7 +241,7 @@ namespace JeremyAnsel.Xwa.Dat
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException("format");
+                    throw new ArgumentOutOfRangeException(nameof(format));
             }
         }
 

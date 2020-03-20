@@ -11,11 +11,9 @@ namespace JeremyAnsel.Xwa.Dat
 
         public DatGroup()
         {
-            this.Images = new List<DatImage>();
         }
 
         public DatGroup(short groupId)
-            : this()
         {
             this.GroupId = groupId;
         }
@@ -34,7 +32,7 @@ namespace JeremyAnsel.Xwa.Dat
             }
         }
 
-        public IList<DatImage> Images { get; private set; }
+        public IList<DatImage> Images { get; } = new List<DatImage>();
 
         public void ConvertToType(DatImageFormat format)
         {
@@ -57,7 +55,7 @@ namespace JeremyAnsel.Xwa.Dat
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException("format");
+                    throw new ArgumentOutOfRangeException(nameof(format));
             }
         }
 
