@@ -52,6 +52,9 @@ namespace JeremyAnsel.Xwa.Dat
                 case DatImageFormat.Format25:
                     return this.ReadFormat25();
 
+                case DatImageFormat.Format25C:
+                    return this.ReadFormat25Compressed();
+
                 case DatImageFormat.Format24:
                     return this.ReadFormat24();
 
@@ -68,6 +71,26 @@ namespace JeremyAnsel.Xwa.Dat
         private byte[] ReadFormat25()
         {
             return this.rawData;
+        }
+
+        private byte[] ReadFormat25Compressed()
+        {
+            byte[] coderProperties = new byte[5];
+            Array.Copy(this.rawData, 0, coderProperties, 0, 5);
+
+            byte[] data = new byte[this.Width * this.Height * 4];
+
+            using (var imageDecompressedStream = new MemoryStream(data, true))
+            {
+                using (var imageStream = new MemoryStream(this.rawData, 5, this.rawData.Length - 5))
+                {
+                    var decoder = new SevenZip.Compression.LZMA.Decoder();
+                    decoder.SetDecoderProperties(coderProperties);
+                    decoder.Code(imageStream, imageDecompressedStream, -1, imageDecompressedStream.Capacity, null);
+                }
+            }
+
+            return data;
         }
 
         private byte[] ReadFormat24()
@@ -344,6 +367,8 @@ namespace JeremyAnsel.Xwa.Dat
                         this.Height = (short)file.Height;
                         this.ColorsCount = 0;
                         this.rawData = bytes;
+
+                        this.ConvertToFormat25Compressed();
                     }
                     break;
 
@@ -387,6 +412,10 @@ namespace JeremyAnsel.Xwa.Dat
                     this.ConvertToFormat25();
                     break;
 
+                case DatImageFormat.Format25C:
+                    this.ConvertToFormat25Compressed();
+                    break;
+
                 case DatImageFormat.Format24:
                     this.ConvertToFormat24();
                     break;
@@ -421,6 +450,39 @@ namespace JeremyAnsel.Xwa.Dat
             this.Format = DatImageFormat.Format25;
             this.ColorsCount = 0;
             this.rawData = data;
+        }
+
+        public void ConvertToFormat25Compressed()
+        {
+            if (this.Format == DatImageFormat.Format25C)
+            {
+                return;
+            }
+
+            byte[] data = this.GetImageData();
+
+            if (data == null)
+            {
+                return;
+            }
+
+            byte[] compressedData;
+
+            using (var imageCompressedStream = new MemoryStream(data.Length + 5))
+            {
+                using (var imageStream = new MemoryStream(data))
+                {
+                    var encoder = new SevenZip.Compression.LZMA.Encoder();
+                    encoder.WriteCoderProperties(imageCompressedStream);
+                    encoder.Code(imageStream, imageCompressedStream, imageStream.Length, -1, null);
+                }
+
+                compressedData = imageCompressedStream.ToArray();
+            }
+
+            this.Format = DatImageFormat.Format25C;
+            this.ColorsCount = 0;
+            this.rawData = compressedData;
         }
 
         public void ConvertToFormat24()
@@ -506,7 +568,6 @@ namespace JeremyAnsel.Xwa.Dat
             this.rawData = imageData;
         }
 
-        [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Reviewed")]
         public void ConvertToFormat7()
         {
             if (this.Format == DatImageFormat.Format7)
@@ -640,7 +701,6 @@ namespace JeremyAnsel.Xwa.Dat
             this.rawData = raw;
         }
 
-        [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Reviewed")]
         public void ConvertToFormat23()
         {
             if (this.Format == DatImageFormat.Format23)

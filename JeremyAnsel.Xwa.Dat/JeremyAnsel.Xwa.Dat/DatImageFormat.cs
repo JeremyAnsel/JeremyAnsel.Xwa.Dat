@@ -30,8 +30,14 @@ namespace JeremyAnsel.Xwa.Dat
 
         /// <summary>
         /// Format: 32-bit ARGB.
-        /// Use: none.
+        /// Use: in-flight.
         /// </summary>
         Format25 = 25,
+
+        /// <summary>
+        /// Format: 32-bit ARGB, LZMA compressed.
+        /// Use: in-flight.
+        /// </summary>
+        Format25C = 26,
     }
 }

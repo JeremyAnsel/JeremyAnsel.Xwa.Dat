@@ -34,12 +34,36 @@ namespace JeremyAnsel.Xwa.Dat
 
         public IList<DatImage> Images { get; } = new List<DatImage>();
 
+        public DatImageFormat Format
+        {
+            get
+            {
+                if (this.Images.Count == 0)
+                {
+                    return (DatImageFormat)(-1);
+                }
+
+                DatImageFormat format = this.Images[0].Format;
+
+                if (this.Images.Any(t => t.Format != format))
+                {
+                    return (DatImageFormat)(-1);
+                }
+
+                return format;
+            }
+        }
+
         public void ConvertToType(DatImageFormat format)
         {
             switch (format)
             {
                 case DatImageFormat.Format25:
                     this.ConvertToFormat25();
+                    break;
+
+                case DatImageFormat.Format25C:
+                    this.ConvertToFormat25Compressed();
                     break;
 
                 case DatImageFormat.Format24:
@@ -64,6 +88,13 @@ namespace JeremyAnsel.Xwa.Dat
             this.Images
                 .AsParallel()
                 .ForAll(t => t.ConvertToFormat25());
+        }
+
+        public void ConvertToFormat25Compressed()
+        {
+            this.Images
+                .AsParallel()
+                .ForAll(t => t.ConvertToFormat25Compressed());
         }
 
         public void ConvertToFormat24()

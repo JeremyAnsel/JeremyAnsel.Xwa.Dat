@@ -24,6 +24,26 @@ namespace JeremyAnsel.Xwa.Dat
             }
         }
 
+        public DatImageFormat Format
+        {
+            get
+            {
+                if (this.Groups.Count == 0)
+                {
+                    return (DatImageFormat)(-1);
+                }
+
+                DatImageFormat format = this.Groups[0].Format;
+
+                if (this.Groups.Any(t => t.Format != format))
+                {
+                    return (DatImageFormat)(-1);
+                }
+
+                return format;
+            }
+        }
+
         [SuppressMessage("Style", "IDE0017:Simplifier l'initialisation des objets", Justification = "Reviewed.")]
         public static DatFile FromFile(string fileName)
         {
@@ -118,6 +138,17 @@ namespace JeremyAnsel.Xwa.Dat
                             file.BaseStream.Position += 0x08;
                             image.ColorsCount = (short)file.ReadInt32();
 
+                            if (image.Format == DatImageFormat.Format25)
+                            {
+                                switch (image.ColorsCount)
+                                {
+                                    case 1:
+                                        image.Format = DatImageFormat.Format25C;
+                                        image.ColorsCount = 0;
+                                        break;
+                                }
+                            }
+
                             image.rawData = file.ReadBytes(dataLength - 0x2C);
 
                             group.Images.Add(image);
@@ -136,7 +167,6 @@ namespace JeremyAnsel.Xwa.Dat
             return dat;
         }
 
-        [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Reviewed")]
         public void Save(string fileName)
         {
             FileStream filestream = null;
@@ -181,7 +211,23 @@ namespace JeremyAnsel.Xwa.Dat
                     {
                         int rawDataLength = image.rawData == null ? 0 : image.rawData.Length;
 
-                        file.Write((short)image.Format);
+                        DatImageFormat format;
+                        short colorsCount;
+
+                        switch (image.Format)
+                        {
+                            case DatImageFormat.Format25C:
+                                format = DatImageFormat.Format25;
+                                colorsCount = 1;
+                                break;
+
+                            default:
+                                format = image.Format;
+                                colorsCount = image.ColorsCount;
+                                break;
+                        }
+
+                        file.Write((short)format);
                         file.Write(image.Width);
                         file.Write(image.Height);
                         file.Write((ushort)0);
@@ -198,9 +244,9 @@ namespace JeremyAnsel.Xwa.Dat
                         file.Write((int)image.Height);
                         file.Write(image.OffsetX);
                         file.Write(image.OffsetY);
-                        file.Write((int)image.Format);
+                        file.Write((int)format);
                         file.Write(0x18);
-                        file.Write((int)image.ColorsCount);
+                        file.Write((int)colorsCount);
 
                         if (image.rawData != null)
                         {
@@ -228,6 +274,10 @@ namespace JeremyAnsel.Xwa.Dat
                     this.ConvertToFormat25();
                     break;
 
+                case DatImageFormat.Format25C:
+                    this.ConvertToFormat25Compressed();
+                    break;
+
                 case DatImageFormat.Format24:
                     this.ConvertToFormat24();
                     break;
@@ -251,6 +301,14 @@ namespace JeremyAnsel.Xwa.Dat
                 .AsParallel()
                 .SelectMany(t => t.Images)
                 .ForAll(t => t.ConvertToFormat25());
+        }
+
+        public void ConvertToFormat25Compressed()
+        {
+            this.Groups
+                .AsParallel()
+                .SelectMany(t => t.Images)
+                .ForAll(t => t.ConvertToFormat25Compressed());
         }
 
         public void ConvertToFormat24()
