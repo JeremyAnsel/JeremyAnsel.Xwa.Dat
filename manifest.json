@@ -13,12 +13,72 @@
       "is_incremental": false
     },
     {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Dat.DatFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Dat.DatFile.html",
+          "hash": "oMRFoIO2QlBHChzh5CQ1jneRTauvZNU+T6Er0m+5+Co="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Dat.DatGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Dat.DatGroup.html",
+          "hash": "ff8d33nomn5ZuECO7BUthEVwnNMiKLuQyfxxuOVtm+M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Dat.DatImage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Dat.DatImage.html",
+          "hash": "gTWeO7Xt8adMgzdirE6JHLllRmLMXyyPeKCWhfv1Lcw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Dat.DatImageFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Dat.DatImageFormat.html",
+          "hash": "fVJtxcVoFhfNioPlwUnJjAv9mfBTWlMNeerbdcIeUcY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/JeremyAnsel.Xwa.Dat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/JeremyAnsel.Xwa.Dat.html",
+          "hash": "CiLV6ZhvUHv4LUN5IOFrh39mnFU7Yb4QQxc7rijQ7Po="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "OdtSOZ+wrT6Db4AXHNp2PA=="
+          "hash": "4CqRa99TO5WaQlhY3FhOYzhNo0E7jVsKAxZkQUe1Myk="
         }
       },
       "is_incremental": false,
@@ -30,19 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "0QLQMBjnOG3Zhih+BxDLyQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "toc.html",
-          "hash": "4SnYImTB3J+EhKn405yGxg=="
+          "hash": "qa6KVjYi9+xGF6AxFKZAFYOXpV+4H9P5bLNT8BaLXbw="
         }
       },
       "is_incremental": false,
@@ -60,17 +108,23 @@
         "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 2,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 5,
+          "skipped_file_count": 0
+        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
           "total_file_count": 0,
-          "skipped_file_count": 0
-        },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 2,
           "skipped_file_count": 0
         }
       }
