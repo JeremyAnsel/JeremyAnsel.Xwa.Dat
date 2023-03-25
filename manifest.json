@@ -9,8 +9,7 @@
         "resource": {
           "relative_path": "index.json"
         }
-      },
-      "is_incremental": false
+      }
     },
     {
       "type": "ManagedReference",
@@ -18,10 +17,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Dat.DatFile.html",
-          "hash": "oMRFoIO2QlBHChzh5CQ1jneRTauvZNU+T6Er0m+5+Co="
+          "hash": "td4sLx1kon4wxG/PFOJGpQb6vIGk22XrJnDpizHslOQ="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -30,10 +28,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Dat.DatGroup.html",
-          "hash": "ff8d33nomn5ZuECO7BUthEVwnNMiKLuQyfxxuOVtm+M="
+          "hash": "TWm9XBNhsVTnb22hyu3km/eMbkjUZ1P5XAPYB6c9iX4="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -42,10 +39,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Dat.DatImage.html",
-          "hash": "gTWeO7Xt8adMgzdirE6JHLllRmLMXyyPeKCWhfv1Lcw="
+          "hash": "uY27cmUFcPRfgpTzR/Z2ZVyyCZy6jXJBkukcqwQImC0="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -54,10 +50,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Dat.DatImageFormat.html",
-          "hash": "fVJtxcVoFhfNioPlwUnJjAv9mfBTWlMNeerbdcIeUcY="
+          "hash": "7gK3EK2fpQbXQjMPiKDjV11xWQi3kHLPM/v5FEd+Avw="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -66,10 +61,9 @@
       "output": {
         ".html": {
           "relative_path": "api/JeremyAnsel.Xwa.Dat.html",
-          "hash": "CiLV6ZhvUHv4LUN5IOFrh39mnFU7Yb4QQxc7rijQ7Po="
+          "hash": "P0+yDCv9YrATjbqgDiVpJfGBJ7YgKRq3+6T5aa15w4E="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -78,10 +72,9 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "4CqRa99TO5WaQlhY3FhOYzhNo0E7jVsKAxZkQUe1Myk="
+          "hash": "E9CgEg9Oaw5kSbd44LpT9vQsgo60Mnwg1VVq0jRsHl8="
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -90,54 +83,10 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "qa6KVjYi9+xGF6AxFKZAFYOXpV+4H9P5bLNT8BaLXbw="
+          "hash": "QbfcaoB6ou6bIZB4MxADMj5UtgwwS56fTBbTZu0ClQM="
         }
       },
-      "is_incremental": false,
       "version": ""
-    }
-  ],
-  "incremental_info": [
-    {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
-        "incrementalPhase": "build",
-        "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "NoAvailableBuildCache"
-      },
-      "processors": {
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 2,
-          "skipped_file_count": 0
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 5,
-          "skipped_file_count": 0
-        },
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build",
-          "total_file_count": 0,
-          "skipped_file_count": 0
-        }
-      }
-    },
-    {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
-        "incrementalPhase": "postProcessing",
-        "total_file_count": 0,
-        "skipped_file_count": 0
-      },
-      "processors": {}
     }
   ],
   "version_info": {},
