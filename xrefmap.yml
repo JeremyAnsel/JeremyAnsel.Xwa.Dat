@@ -133,6 +133,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatFile.FromFile
   nameWithType: DatFile.FromFile
+- uid: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream)
+  name: FromStream(Stream)
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FromStream_System_IO_Stream_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream)
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream)
+  nameWithType: DatFile.FromStream(Stream)
+- uid: JeremyAnsel.Xwa.Dat.DatFile.FromStream*
+  name: FromStream
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FromStream_
+  commentId: Overload:JeremyAnsel.Xwa.Dat.DatFile.FromStream
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.FromStream
+  nameWithType: DatFile.FromStream
 - uid: JeremyAnsel.Xwa.Dat.DatFile.Groups
   name: Groups
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_Groups
@@ -159,6 +172,12 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatFile.Images
   nameWithType: DatFile.Images
+- uid: JeremyAnsel.Xwa.Dat.DatFile.Save(System.IO.Stream)
+  name: Save(Stream)
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_Save_System_IO_Stream_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatFile.Save(System.IO.Stream)
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.Save(System.IO.Stream)
+  nameWithType: DatFile.Save(Stream)
 - uid: JeremyAnsel.Xwa.Dat.DatFile.Save(System.String)
   name: Save(string)
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_Save_System_String_
