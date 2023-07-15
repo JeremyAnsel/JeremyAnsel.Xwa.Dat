@@ -91,6 +91,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatFile.ConvertToFormat7
   nameWithType: DatFile.ConvertToFormat7
+- uid: JeremyAnsel.Xwa.Dat.DatFile.ConvertToFormatBc7
+  name: ConvertToFormatBc7()
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_ConvertToFormatBc7
+  commentId: M:JeremyAnsel.Xwa.Dat.DatFile.ConvertToFormatBc7
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.ConvertToFormatBc7()
+  nameWithType: DatFile.ConvertToFormatBc7()
+- uid: JeremyAnsel.Xwa.Dat.DatFile.ConvertToFormatBc7*
+  name: ConvertToFormatBc7
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_ConvertToFormatBc7_
+  commentId: Overload:JeremyAnsel.Xwa.Dat.DatFile.ConvertToFormatBc7
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.ConvertToFormatBc7
+  nameWithType: DatFile.ConvertToFormatBc7
 - uid: JeremyAnsel.Xwa.Dat.DatFile.FileName
   name: FileName
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FileName
@@ -293,6 +306,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormat7
   nameWithType: DatGroup.ConvertToFormat7
+- uid: JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc7
+  name: ConvertToFormatBc7()
+  href: api/JeremyAnsel.Xwa.Dat.DatGroup.html#JeremyAnsel_Xwa_Dat_DatGroup_ConvertToFormatBc7
+  commentId: M:JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc7
+  fullName: JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc7()
+  nameWithType: DatGroup.ConvertToFormatBc7()
+- uid: JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc7*
+  name: ConvertToFormatBc7
+  href: api/JeremyAnsel.Xwa.Dat.DatGroup.html#JeremyAnsel_Xwa_Dat_DatGroup_ConvertToFormatBc7_
+  commentId: Overload:JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc7
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc7
+  nameWithType: DatGroup.ConvertToFormatBc7
 - uid: JeremyAnsel.Xwa.Dat.DatGroup.ConvertToType(JeremyAnsel.Xwa.Dat.DatImageFormat)
   name: ConvertToType(DatImageFormat)
   href: api/JeremyAnsel.Xwa.Dat.DatGroup.html#JeremyAnsel_Xwa_Dat_DatGroup_ConvertToType_JeremyAnsel_Xwa_Dat_DatImageFormat_
@@ -470,6 +496,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatImage.ConvertToFormat7
   nameWithType: DatImage.ConvertToFormat7
+- uid: JeremyAnsel.Xwa.Dat.DatImage.ConvertToFormatBc7
+  name: ConvertToFormatBc7()
+  href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_ConvertToFormatBc7
+  commentId: M:JeremyAnsel.Xwa.Dat.DatImage.ConvertToFormatBc7
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.ConvertToFormatBc7()
+  nameWithType: DatImage.ConvertToFormatBc7()
+- uid: JeremyAnsel.Xwa.Dat.DatImage.ConvertToFormatBc7*
+  name: ConvertToFormatBc7
+  href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_ConvertToFormatBc7_
+  commentId: Overload:JeremyAnsel.Xwa.Dat.DatImage.ConvertToFormatBc7
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.ConvertToFormatBc7
+  nameWithType: DatImage.ConvertToFormatBc7
 - uid: JeremyAnsel.Xwa.Dat.DatImage.Format
   name: Format
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_Format
@@ -728,3 +767,9 @@ references:
   commentId: F:JeremyAnsel.Xwa.Dat.DatImageFormat.Format7
   fullName: JeremyAnsel.Xwa.Dat.DatImageFormat.Format7
   nameWithType: DatImageFormat.Format7
+- uid: JeremyAnsel.Xwa.Dat.DatImageFormat.FormatBc7
+  name: FormatBc7
+  href: api/JeremyAnsel.Xwa.Dat.DatImageFormat.html#JeremyAnsel_Xwa_Dat_DatImageFormat_FormatBc7
+  commentId: F:JeremyAnsel.Xwa.Dat.DatImageFormat.FormatBc7
+  fullName: JeremyAnsel.Xwa.Dat.DatImageFormat.FormatBc7
+  nameWithType: DatImageFormat.FormatBc7
