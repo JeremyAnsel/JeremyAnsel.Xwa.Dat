@@ -27,7 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="JeremyAnsel.BcnSharp" Version="1.0.3" />
+    <PackageReference Include="JeremyAnsel.BcnSharp" Version="1.0.3">
+      <PrivateAssets>analyzers</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="JeremyAnsel.ColorQuant" Version="3.0.70" />
     <PackageReference Condition="'$(CI)' == 'True'" Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
       <PrivateAssets>all</PrivateAssets>
