@@ -66,6 +66,10 @@ namespace JeremyAnsel.Xwa.Dat
                     this.ConvertToFormat25Compressed();
                     break;
 
+                case DatImageFormat.FormatBc7:
+                    this.ConvertToFormatBc7();
+                    break;
+
                 case DatImageFormat.Format24:
                     this.ConvertToFormat24();
                     break;
@@ -95,6 +99,13 @@ namespace JeremyAnsel.Xwa.Dat
             this.Images
                 .AsParallel()
                 .ForAll(t => t.ConvertToFormat25Compressed());
+        }
+
+        public void ConvertToFormatBc7()
+        {
+            this.Images
+                .AsParallel()
+                .ForAll(t => t.ConvertToFormatBc7());
         }
 
         public void ConvertToFormat24()

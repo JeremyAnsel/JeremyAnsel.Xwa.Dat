@@ -39,5 +39,11 @@ namespace JeremyAnsel.Xwa.Dat
         /// Use: in-flight.
         /// </summary>
         Format25C = 26,
+
+        /// <summary>
+        /// Format: BC7 ARGB
+        /// Use: in-flight.
+        /// </summary>
+        FormatBc7,
     }
 }

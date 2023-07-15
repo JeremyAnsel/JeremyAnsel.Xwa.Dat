@@ -1,6 +1,7 @@
 
 namespace JeremyAnsel.Xwa.Dat
 {
+    using JeremyAnsel.BcnSharp;
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
@@ -55,6 +56,9 @@ namespace JeremyAnsel.Xwa.Dat
                 case DatImageFormat.Format25C:
                     return this.ReadFormat25Compressed();
 
+                case DatImageFormat.FormatBc7:
+                    return this.ReadFormatBc7();
+
                 case DatImageFormat.Format24:
                     return this.ReadFormat24();
 
@@ -70,7 +74,7 @@ namespace JeremyAnsel.Xwa.Dat
 
         private byte[] ReadFormat25()
         {
-            return this.rawData;
+            return (byte[])this.rawData.Clone();
         }
 
         private byte[] ReadFormat25Compressed()
@@ -89,6 +93,13 @@ namespace JeremyAnsel.Xwa.Dat
                     decoder.Code(imageStream, imageDecompressedStream, -1, imageDecompressedStream.Capacity, null);
                 }
             }
+
+            return data;
+        }
+
+        private byte[] ReadFormatBc7()
+        {
+            byte[] data = Bc7Sharp.Decode(this.rawData, this.Width, this.Height);
 
             return data;
         }
@@ -416,6 +427,10 @@ namespace JeremyAnsel.Xwa.Dat
                     this.ConvertToFormat25Compressed();
                     break;
 
+                case DatImageFormat.FormatBc7:
+                    this.ConvertToFormatBc7();
+                    break;
+
                 case DatImageFormat.Format24:
                     this.ConvertToFormat24();
                     break;
@@ -481,6 +496,27 @@ namespace JeremyAnsel.Xwa.Dat
             }
 
             this.Format = DatImageFormat.Format25C;
+            this.ColorsCount = 0;
+            this.rawData = compressedData;
+        }
+
+        public void ConvertToFormatBc7()
+        {
+            if (this.Format == DatImageFormat.FormatBc7)
+            {
+                return;
+            }
+
+            byte[] data = this.GetImageData();
+
+            if (data == null)
+            {
+                return;
+            }
+
+            byte[] compressedData = Bc7Sharp.Encode(data, this.Width, this.Height);
+
+            this.Format = DatImageFormat.FormatBc7;
             this.ColorsCount = 0;
             this.rawData = compressedData;
         }

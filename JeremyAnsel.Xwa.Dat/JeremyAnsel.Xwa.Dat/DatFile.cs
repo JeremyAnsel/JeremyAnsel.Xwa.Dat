@@ -141,6 +141,14 @@ namespace JeremyAnsel.Xwa.Dat
                     {
                         switch (image.ColorsCount)
                         {
+                            case 0:
+                                if (dataLength - 0x2C < image.Width * image.Height * 4)
+                                {
+                                    image.Format = DatImageFormat.FormatBc7;
+                                }
+
+                                break;
+
                             case 1:
                                 image.Format = DatImageFormat.Format25C;
                                 image.ColorsCount = 0;
@@ -211,6 +219,11 @@ namespace JeremyAnsel.Xwa.Dat
                         colorsCount = 1;
                         break;
 
+                    case DatImageFormat.FormatBc7:
+                        format = DatImageFormat.Format25;
+                        colorsCount = 0;
+                        break;
+
                     default:
                         format = image.Format;
                         colorsCount = image.ColorsCount;
@@ -257,6 +270,10 @@ namespace JeremyAnsel.Xwa.Dat
                     this.ConvertToFormat25Compressed();
                     break;
 
+                case DatImageFormat.FormatBc7:
+                    this.ConvertToFormatBc7();
+                    break;
+
                 case DatImageFormat.Format24:
                     this.ConvertToFormat24();
                     break;
@@ -288,6 +305,14 @@ namespace JeremyAnsel.Xwa.Dat
                 .AsParallel()
                 .SelectMany(t => t.Images)
                 .ForAll(t => t.ConvertToFormat25Compressed());
+        }
+
+        public void ConvertToFormatBc7()
+        {
+            this.Groups
+                .AsParallel()
+                .SelectMany(t => t.Images)
+                .ForAll(t => t.ConvertToFormatBc7());
         }
 
         public void ConvertToFormat24()
