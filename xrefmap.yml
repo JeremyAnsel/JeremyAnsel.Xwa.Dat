@@ -130,6 +130,15 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatFile.Format
   nameWithType: DatFile.Format
+- uid: JeremyAnsel.Xwa.Dat.DatFile.FromFile(System.String,System.Boolean)
+  name: FromFile(string, bool)
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FromFile_System_String_System_Boolean_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatFile.FromFile(System.String,System.Boolean)
+  name.vb: FromFile(String, Boolean)
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.FromFile(string, bool)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatFile.FromFile(String, Boolean)
+  nameWithType: DatFile.FromFile(string, bool)
+  nameWithType.vb: DatFile.FromFile(String, Boolean)
 - uid: JeremyAnsel.Xwa.Dat.DatFile.FromFile(System.String)
   name: FromFile(string)
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FromFile_System_String_
@@ -146,6 +155,15 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatFile.FromFile
   nameWithType: DatFile.FromFile
+- uid: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream,System.Boolean)
+  name: FromStream(Stream, bool)
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FromStream_System_IO_Stream_System_Boolean_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream,System.Boolean)
+  name.vb: FromStream(Stream, Boolean)
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream, bool)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream, Boolean)
+  nameWithType: DatFile.FromStream(Stream, bool)
+  nameWithType.vb: DatFile.FromStream(Stream, Boolean)
 - uid: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream)
   name: FromStream(Stream)
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FromStream_System_IO_Stream_
@@ -159,6 +177,38 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatFile.FromStream
   nameWithType: DatFile.FromStream
+- uid: JeremyAnsel.Xwa.Dat.DatFile.GetGroupById(System.Int16)
+  name: GetGroupById(short)
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_GetGroupById_System_Int16_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatFile.GetGroupById(System.Int16)
+  name.vb: GetGroupById(Short)
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.GetGroupById(short)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatFile.GetGroupById(Short)
+  nameWithType: DatFile.GetGroupById(short)
+  nameWithType.vb: DatFile.GetGroupById(Short)
+- uid: JeremyAnsel.Xwa.Dat.DatFile.GetGroupById*
+  name: GetGroupById
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_GetGroupById_
+  commentId: Overload:JeremyAnsel.Xwa.Dat.DatFile.GetGroupById
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.GetGroupById
+  nameWithType: DatFile.GetGroupById
+- uid: JeremyAnsel.Xwa.Dat.DatFile.GetImageById(System.Int16,System.Int16)
+  name: GetImageById(short, short)
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_GetImageById_System_Int16_System_Int16_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatFile.GetImageById(System.Int16,System.Int16)
+  name.vb: GetImageById(Short, Short)
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.GetImageById(short, short)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatFile.GetImageById(Short, Short)
+  nameWithType: DatFile.GetImageById(short, short)
+  nameWithType.vb: DatFile.GetImageById(Short, Short)
+- uid: JeremyAnsel.Xwa.Dat.DatFile.GetImageById*
+  name: GetImageById
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_GetImageById_
+  commentId: Overload:JeremyAnsel.Xwa.Dat.DatFile.GetImageById
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.GetImageById
+  nameWithType: DatFile.GetImageById
 - uid: JeremyAnsel.Xwa.Dat.DatFile.Groups
   name: Groups
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_Groups
@@ -172,6 +222,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatFile.Groups
   nameWithType: DatFile.Groups
+- uid: JeremyAnsel.Xwa.Dat.DatFile.HasImagesData
+  name: HasImagesData
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_HasImagesData
+  commentId: P:JeremyAnsel.Xwa.Dat.DatFile.HasImagesData
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.HasImagesData
+  nameWithType: DatFile.HasImagesData
+- uid: JeremyAnsel.Xwa.Dat.DatFile.HasImagesData*
+  name: HasImagesData
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_HasImagesData_
+  commentId: Overload:JeremyAnsel.Xwa.Dat.DatFile.HasImagesData
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.HasImagesData
+  nameWithType: DatFile.HasImagesData
 - uid: JeremyAnsel.Xwa.Dat.DatFile.Images
   name: Images
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_Images
@@ -345,6 +408,22 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatGroup.Format
   nameWithType: DatGroup.Format
+- uid: JeremyAnsel.Xwa.Dat.DatGroup.GetImageById(System.Int16)
+  name: GetImageById(short)
+  href: api/JeremyAnsel.Xwa.Dat.DatGroup.html#JeremyAnsel_Xwa_Dat_DatGroup_GetImageById_System_Int16_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatGroup.GetImageById(System.Int16)
+  name.vb: GetImageById(Short)
+  fullName: JeremyAnsel.Xwa.Dat.DatGroup.GetImageById(short)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatGroup.GetImageById(Short)
+  nameWithType: DatGroup.GetImageById(short)
+  nameWithType.vb: DatGroup.GetImageById(Short)
+- uid: JeremyAnsel.Xwa.Dat.DatGroup.GetImageById*
+  name: GetImageById
+  href: api/JeremyAnsel.Xwa.Dat.DatGroup.html#JeremyAnsel_Xwa_Dat_DatGroup_GetImageById_
+  commentId: Overload:JeremyAnsel.Xwa.Dat.DatGroup.GetImageById
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Dat.DatGroup.GetImageById
+  nameWithType: DatGroup.GetImageById
 - uid: JeremyAnsel.Xwa.Dat.DatGroup.GroupId
   name: GroupId
   href: api/JeremyAnsel.Xwa.Dat.DatGroup.html#JeremyAnsel_Xwa_Dat_DatGroup_GroupId
