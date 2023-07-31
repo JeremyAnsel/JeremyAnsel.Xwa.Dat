@@ -186,6 +186,119 @@ namespace JeremyAnsel.Xwa.Dat
             return dat;
         }
 
+        public static DatImage GetImageDataById(string fileName, short groupId, short imageId)
+        {
+            using var filestream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+            return GetImageDataById(filestream, groupId, imageId);
+        }
+
+        public static DatImage GetImageDataById(Stream stream, short groupId, short imageId)
+        {
+            using var file = new BinaryReader(stream, Encoding.ASCII, true);
+
+            long signature = file.ReadInt64();
+
+            if (signature != DatFile.Signature)
+            {
+                throw new InvalidDataException();
+            }
+
+            short groupFormat = file.ReadInt16();
+            short count = file.ReadInt16();
+
+            file.ReadInt16(); // images count
+            file.ReadInt32(); // images length
+
+            if (groupFormat != 0)
+            {
+                file.BaseStream.Position += 12;
+            }
+
+            file.BaseStream.Position += 4;
+
+            int imagesCount = 0;
+
+            for (int i = 0; i < count; i++)
+            {
+                file.ReadInt16(); // groupId
+                int imageCount = file.ReadInt16();
+                file.ReadInt32(); // length
+
+                if (groupFormat != 0)
+                {
+                    file.ReadInt32(); // colors count
+                    int m0C = file.ReadInt32();
+                    int m10 = file.ReadInt32();
+
+                    if (m0C != 0 || m10 != 0)
+                    {
+                        throw new InvalidDataException();
+                    }
+                }
+
+                file.ReadInt32(); // offset
+
+                imagesCount += imageCount;
+            }
+
+            for (int i = 0; i < imagesCount; i++)
+            {
+                var image = new DatImage();
+
+                image.Format = (DatImageFormat)file.ReadInt16();
+                image.Width = file.ReadInt16();
+                image.Height = file.ReadInt16();
+                file.ReadUInt16(); // color key
+                file.ReadInt16(); // colors count
+                image.GroupId = file.ReadInt16();
+                image.ImageId = file.ReadInt16();
+
+                int dataLength = file.ReadInt32();
+
+                if (dataLength < 0x2C)
+                {
+                    throw new InvalidDataException();
+                }
+
+                file.BaseStream.Position += 0x18;
+                image.OffsetX = file.ReadInt32();
+                image.OffsetY = file.ReadInt32();
+                file.BaseStream.Position += 0x08;
+                image.ColorsCount = (short)file.ReadInt32();
+
+                if (image.Format == DatImageFormat.Format25)
+                {
+                    switch (image.ColorsCount)
+                    {
+                        case 0:
+                            if (dataLength - 0x2C < image.Width * image.Height * 4)
+                            {
+                                image.Format = DatImageFormat.FormatBc7;
+                            }
+
+                            break;
+
+                        case 1:
+                            image.Format = DatImageFormat.Format25C;
+                            image.ColorsCount = 0;
+                            break;
+                    }
+                }
+
+                if (image.GroupId != groupId || image.ImageId != imageId)
+                {
+                    file.BaseStream.Position += dataLength - 0x2C;
+                    continue;
+                }
+
+                image.rawData = file.ReadBytes(dataLength - 0x2C);
+                return image;
+            }
+
+            return null;
+        }
+
         public void Save(string fileName)
         {
             using var filestream = new FileStream(fileName, FileMode.Create, FileAccess.Write);
