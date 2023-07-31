@@ -14,6 +14,8 @@ namespace JeremyAnsel.Xwa.Dat
 
         public string FileName { get; private set; }
 
+        public bool HasImagesData { get; private set; }
+
         public IList<DatGroup> Groups { get; } = new List<DatGroup>();
 
         public IEnumerable<DatImage> Images
@@ -46,18 +48,30 @@ namespace JeremyAnsel.Xwa.Dat
 
         public static DatFile FromFile(string fileName)
         {
+            return FromFile(fileName, true);
+        }
+
+        public static DatFile FromFile(string fileName, bool includeImagesData)
+        {
             using var filestream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
 
-            DatFile dat = FromStream(filestream);
+            DatFile dat = FromStream(filestream, includeImagesData);
             dat.FileName = fileName;
 
             return dat;
         }
 
-        [SuppressMessage("Style", "IDE0017:Simplifier l'initialisation des objets", Justification = "Reviewed.")]
         public static DatFile FromStream(Stream stream)
         {
+            return FromStream(stream, true);
+        }
+
+        [SuppressMessage("Style", "IDE0017:Simplifier l'initialisation des objets", Justification = "Reviewed.")]
+        public static DatFile FromStream(Stream stream, bool includeImagesData)
+        {
             var dat = new DatFile();
+
+            dat.HasImagesData = includeImagesData;
 
             using var file = new BinaryReader(stream, Encoding.ASCII, true);
 
@@ -156,7 +170,14 @@ namespace JeremyAnsel.Xwa.Dat
                         }
                     }
 
-                    image.rawData = file.ReadBytes(dataLength - 0x2C);
+                    if (includeImagesData)
+                    {
+                        image.rawData = file.ReadBytes(dataLength - 0x2C);
+                    }
+                    else
+                    {
+                        file.BaseStream.Position += dataLength - 0x2C;
+                    }
 
                     group.Images.Add(image);
                 }

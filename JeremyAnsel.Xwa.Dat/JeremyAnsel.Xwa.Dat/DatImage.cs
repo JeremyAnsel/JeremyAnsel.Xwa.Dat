@@ -48,6 +48,11 @@ namespace JeremyAnsel.Xwa.Dat
 
         public byte[] GetImageData()
         {
+            if (this.rawData == null)
+            {
+                return null;
+            }
+
             switch (this.Format)
             {
                 case DatImageFormat.Format25:
@@ -618,6 +623,11 @@ namespace JeremyAnsel.Xwa.Dat
                 return;
             }
 
+            if (this.rawData == null)
+            {
+                return;
+            }
+
             int alphaValue = 0x80;
 
             void addSegment(List<Tuple<bool, ArraySegment<byte>>> values, byte[] array, bool t, int c, int n)
@@ -747,6 +757,11 @@ namespace JeremyAnsel.Xwa.Dat
             this.ConvertToFormat24();
 
             if (this.Format != DatImageFormat.Format24)
+            {
+                return;
+            }
+
+            if (this.rawData == null)
             {
                 return;
             }
