@@ -54,6 +54,19 @@ namespace JeremyAnsel.Xwa.Dat
             }
         }
 
+        public DatImage GetImageById(short imageId)
+        {
+            foreach (var image in this.Images)
+            {
+                if (image.ImageId == imageId)
+                {
+                    return image;
+                }
+            }
+
+            return null;
+        }
+
         public void ConvertToType(DatImageFormat format)
         {
             switch (format)

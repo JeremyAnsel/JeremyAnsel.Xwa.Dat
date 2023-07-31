@@ -279,6 +279,39 @@ namespace JeremyAnsel.Xwa.Dat
             }
         }
 
+        public DatGroup GetGroupById(short groupId)
+        {
+            foreach (var group in this.Groups)
+            {
+                if (group.GroupId == groupId)
+                {
+                    return group;
+                }
+            }
+
+            return null;
+        }
+
+        public DatImage GetImageById(short groupId, short imageId)
+        {
+            DatGroup group = this.GetGroupById(groupId);
+
+            if (group == null)
+            {
+                return null;
+            }
+
+            foreach (var image in group.Images)
+            {
+                if (image.ImageId == imageId)
+                {
+                    return image;
+                }
+            }
+
+            return null;
+        }
+
         public void ConvertToFormat(DatImageFormat format)
         {
             switch (format)
