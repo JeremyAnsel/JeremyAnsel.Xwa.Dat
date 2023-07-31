@@ -209,6 +209,31 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatFile.GetImageById
   nameWithType: DatFile.GetImageById
+- uid: JeremyAnsel.Xwa.Dat.DatFile.GetImageDataById(System.IO.Stream,System.Int16,System.Int16)
+  name: GetImageDataById(Stream, short, short)
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_GetImageDataById_System_IO_Stream_System_Int16_System_Int16_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatFile.GetImageDataById(System.IO.Stream,System.Int16,System.Int16)
+  name.vb: GetImageDataById(Stream, Short, Short)
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.GetImageDataById(System.IO.Stream, short, short)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatFile.GetImageDataById(System.IO.Stream, Short, Short)
+  nameWithType: DatFile.GetImageDataById(Stream, short, short)
+  nameWithType.vb: DatFile.GetImageDataById(Stream, Short, Short)
+- uid: JeremyAnsel.Xwa.Dat.DatFile.GetImageDataById(System.String,System.Int16,System.Int16)
+  name: GetImageDataById(string, short, short)
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_GetImageDataById_System_String_System_Int16_System_Int16_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatFile.GetImageDataById(System.String,System.Int16,System.Int16)
+  name.vb: GetImageDataById(String, Short, Short)
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.GetImageDataById(string, short, short)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatFile.GetImageDataById(String, Short, Short)
+  nameWithType: DatFile.GetImageDataById(string, short, short)
+  nameWithType.vb: DatFile.GetImageDataById(String, Short, Short)
+- uid: JeremyAnsel.Xwa.Dat.DatFile.GetImageDataById*
+  name: GetImageDataById
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_GetImageDataById_
+  commentId: Overload:JeremyAnsel.Xwa.Dat.DatFile.GetImageDataById
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.GetImageDataById
+  nameWithType: DatFile.GetImageDataById
 - uid: JeremyAnsel.Xwa.Dat.DatFile.Groups
   name: Groups
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_Groups
