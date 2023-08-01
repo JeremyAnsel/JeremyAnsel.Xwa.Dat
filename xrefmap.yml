@@ -626,6 +626,15 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatImage.Format
   nameWithType: DatImage.Format
+- uid: JeremyAnsel.Xwa.Dat.DatImage.FromFile(System.Int16,System.Int16,System.IO.Stream)
+  name: FromFile(short, short, Stream)
+  href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_FromFile_System_Int16_System_Int16_System_IO_Stream_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatImage.FromFile(System.Int16,System.Int16,System.IO.Stream)
+  name.vb: FromFile(Short, Short, Stream)
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.FromFile(short, short, System.IO.Stream)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatImage.FromFile(Short, Short, System.IO.Stream)
+  nameWithType: DatImage.FromFile(short, short, Stream)
+  nameWithType.vb: DatImage.FromFile(Short, Short, Stream)
 - uid: JeremyAnsel.Xwa.Dat.DatImage.FromFile(System.Int16,System.Int16,System.String)
   name: FromFile(short, short, string)
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_FromFile_System_Int16_System_Int16_System_String_
@@ -774,6 +783,12 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatImage.OffsetY
   nameWithType: DatImage.OffsetY
+- uid: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream)
+  name: ReplaceWithFile(Stream)
+  href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_ReplaceWithFile_System_IO_Stream_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream)
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream)
+  nameWithType: DatImage.ReplaceWithFile(Stream)
 - uid: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.String)
   name: ReplaceWithFile(string)
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_ReplaceWithFile_System_String_
