@@ -393,6 +393,49 @@ namespace JeremyAnsel.Xwa.Dat
             }
         }
 
+        public void ReplaceWithFile(Stream stream)
+        {
+            using (var file = new Bitmap(stream))
+            {
+                if (file.Width > short.MaxValue)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(stream));
+                }
+
+                if (file.Height > short.MaxValue)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(stream));
+                }
+
+                var rect = new Rectangle(0, 0, file.Width, file.Height);
+                int length = file.Width * file.Height;
+
+                byte[] bytes = new byte[length * 4];
+
+                using (var bitmap = file.Clone(rect, PixelFormat.Format32bppArgb))
+                {
+                    var data = bitmap.LockBits(rect, ImageLockMode.ReadOnly, bitmap.PixelFormat);
+
+                    try
+                    {
+                        Marshal.Copy(data.Scan0, bytes, 0, length * 4);
+                    }
+                    finally
+                    {
+                        bitmap.UnlockBits(data);
+                    }
+                }
+
+                this.Format = DatImageFormat.Format25;
+                this.Width = (short)file.Width;
+                this.Height = (short)file.Height;
+                this.ColorsCount = 0;
+                this.rawData = bytes;
+
+                this.ConvertToFormat25Compressed();
+            }
+        }
+
         public void ReplaceWithMemory(DatImageFormat format, short width, short height, short colorsCount, byte[] data)
         {
             this.Format = format;
@@ -407,6 +450,15 @@ namespace JeremyAnsel.Xwa.Dat
             DatImage image = new DatImage(groupId, imageId);
 
             image.ReplaceWithFile(fileName);
+
+            return image;
+        }
+
+        public static DatImage FromFile(short groupId, short imageId, Stream stream)
+        {
+            DatImage image = new DatImage(groupId, imageId);
+
+            image.ReplaceWithFile(stream);
 
             return image;
         }
