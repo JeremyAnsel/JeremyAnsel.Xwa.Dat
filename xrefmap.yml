@@ -130,15 +130,6 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatFile.Format
   nameWithType: DatFile.Format
-- uid: JeremyAnsel.Xwa.Dat.DatFile.FromFile(System.String,System.Boolean)
-  name: FromFile(string, bool)
-  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FromFile_System_String_System_Boolean_
-  commentId: M:JeremyAnsel.Xwa.Dat.DatFile.FromFile(System.String,System.Boolean)
-  name.vb: FromFile(String, Boolean)
-  fullName: JeremyAnsel.Xwa.Dat.DatFile.FromFile(string, bool)
-  fullName.vb: JeremyAnsel.Xwa.Dat.DatFile.FromFile(String, Boolean)
-  nameWithType: DatFile.FromFile(string, bool)
-  nameWithType.vb: DatFile.FromFile(String, Boolean)
 - uid: JeremyAnsel.Xwa.Dat.DatFile.FromFile(System.String)
   name: FromFile(string)
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FromFile_System_String_
@@ -148,6 +139,15 @@ references:
   fullName.vb: JeremyAnsel.Xwa.Dat.DatFile.FromFile(String)
   nameWithType: DatFile.FromFile(string)
   nameWithType.vb: DatFile.FromFile(String)
+- uid: JeremyAnsel.Xwa.Dat.DatFile.FromFile(System.String,System.Boolean)
+  name: FromFile(string, bool)
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FromFile_System_String_System_Boolean_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatFile.FromFile(System.String,System.Boolean)
+  name.vb: FromFile(String, Boolean)
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.FromFile(string, bool)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatFile.FromFile(String, Boolean)
+  nameWithType: DatFile.FromFile(string, bool)
+  nameWithType.vb: DatFile.FromFile(String, Boolean)
 - uid: JeremyAnsel.Xwa.Dat.DatFile.FromFile*
   name: FromFile
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FromFile_
@@ -155,6 +155,12 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatFile.FromFile
   nameWithType: DatFile.FromFile
+- uid: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream)
+  name: FromStream(Stream)
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FromStream_System_IO_Stream_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream)
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream)
+  nameWithType: DatFile.FromStream(Stream)
 - uid: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream,System.Boolean)
   name: FromStream(Stream, bool)
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FromStream_System_IO_Stream_System_Boolean_
@@ -164,12 +170,6 @@ references:
   fullName.vb: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream, Boolean)
   nameWithType: DatFile.FromStream(Stream, bool)
   nameWithType.vb: DatFile.FromStream(Stream, Boolean)
-- uid: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream)
-  name: FromStream(Stream)
-  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FromStream_System_IO_Stream_
-  commentId: M:JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream)
-  fullName: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream)
-  nameWithType: DatFile.FromStream(Stream)
 - uid: JeremyAnsel.Xwa.Dat.DatFile.FromStream*
   name: FromStream
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FromStream_
@@ -635,6 +635,15 @@ references:
   fullName.vb: JeremyAnsel.Xwa.Dat.DatImage.FromFile(Short, Short, System.IO.Stream)
   nameWithType: DatImage.FromFile(short, short, Stream)
   nameWithType.vb: DatImage.FromFile(Short, Short, Stream)
+- uid: JeremyAnsel.Xwa.Dat.DatImage.FromFile(System.Int16,System.Int16,System.IO.Stream,JeremyAnsel.Xwa.Dat.DatImageFormat)
+  name: FromFile(short, short, Stream, DatImageFormat)
+  href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_FromFile_System_Int16_System_Int16_System_IO_Stream_JeremyAnsel_Xwa_Dat_DatImageFormat_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatImage.FromFile(System.Int16,System.Int16,System.IO.Stream,JeremyAnsel.Xwa.Dat.DatImageFormat)
+  name.vb: FromFile(Short, Short, Stream, DatImageFormat)
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.FromFile(short, short, System.IO.Stream, JeremyAnsel.Xwa.Dat.DatImageFormat)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatImage.FromFile(Short, Short, System.IO.Stream, JeremyAnsel.Xwa.Dat.DatImageFormat)
+  nameWithType: DatImage.FromFile(short, short, Stream, DatImageFormat)
+  nameWithType.vb: DatImage.FromFile(Short, Short, Stream, DatImageFormat)
 - uid: JeremyAnsel.Xwa.Dat.DatImage.FromFile(System.Int16,System.Int16,System.String)
   name: FromFile(short, short, string)
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_FromFile_System_Int16_System_Int16_System_String_
@@ -644,6 +653,15 @@ references:
   fullName.vb: JeremyAnsel.Xwa.Dat.DatImage.FromFile(Short, Short, String)
   nameWithType: DatImage.FromFile(short, short, string)
   nameWithType.vb: DatImage.FromFile(Short, Short, String)
+- uid: JeremyAnsel.Xwa.Dat.DatImage.FromFile(System.Int16,System.Int16,System.String,JeremyAnsel.Xwa.Dat.DatImageFormat)
+  name: FromFile(short, short, string, DatImageFormat)
+  href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_FromFile_System_Int16_System_Int16_System_String_JeremyAnsel_Xwa_Dat_DatImageFormat_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatImage.FromFile(System.Int16,System.Int16,System.String,JeremyAnsel.Xwa.Dat.DatImageFormat)
+  name.vb: FromFile(Short, Short, String, DatImageFormat)
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.FromFile(short, short, string, JeremyAnsel.Xwa.Dat.DatImageFormat)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatImage.FromFile(Short, Short, String, JeremyAnsel.Xwa.Dat.DatImageFormat)
+  nameWithType: DatImage.FromFile(short, short, string, DatImageFormat)
+  nameWithType.vb: DatImage.FromFile(Short, Short, String, DatImageFormat)
 - uid: JeremyAnsel.Xwa.Dat.DatImage.FromFile*
   name: FromFile
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_FromFile_
@@ -732,15 +750,6 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatImage.ImageId
   nameWithType: DatImage.ImageId
-- uid: JeremyAnsel.Xwa.Dat.DatImage.MakeColorTransparent(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte)
-  name: MakeColorTransparent(byte, byte, byte, byte, byte, byte)
-  href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_MakeColorTransparent_System_Byte_System_Byte_System_Byte_System_Byte_System_Byte_System_Byte_
-  commentId: M:JeremyAnsel.Xwa.Dat.DatImage.MakeColorTransparent(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte)
-  name.vb: MakeColorTransparent(Byte, Byte, Byte, Byte, Byte, Byte)
-  fullName: JeremyAnsel.Xwa.Dat.DatImage.MakeColorTransparent(byte, byte, byte, byte, byte, byte)
-  fullName.vb: JeremyAnsel.Xwa.Dat.DatImage.MakeColorTransparent(Byte, Byte, Byte, Byte, Byte, Byte)
-  nameWithType: DatImage.MakeColorTransparent(byte, byte, byte, byte, byte, byte)
-  nameWithType.vb: DatImage.MakeColorTransparent(Byte, Byte, Byte, Byte, Byte, Byte)
 - uid: JeremyAnsel.Xwa.Dat.DatImage.MakeColorTransparent(System.Byte,System.Byte,System.Byte)
   name: MakeColorTransparent(byte, byte, byte)
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_MakeColorTransparent_System_Byte_System_Byte_System_Byte_
@@ -750,6 +759,15 @@ references:
   fullName.vb: JeremyAnsel.Xwa.Dat.DatImage.MakeColorTransparent(Byte, Byte, Byte)
   nameWithType: DatImage.MakeColorTransparent(byte, byte, byte)
   nameWithType.vb: DatImage.MakeColorTransparent(Byte, Byte, Byte)
+- uid: JeremyAnsel.Xwa.Dat.DatImage.MakeColorTransparent(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte)
+  name: MakeColorTransparent(byte, byte, byte, byte, byte, byte)
+  href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_MakeColorTransparent_System_Byte_System_Byte_System_Byte_System_Byte_System_Byte_System_Byte_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatImage.MakeColorTransparent(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte)
+  name.vb: MakeColorTransparent(Byte, Byte, Byte, Byte, Byte, Byte)
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.MakeColorTransparent(byte, byte, byte, byte, byte, byte)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatImage.MakeColorTransparent(Byte, Byte, Byte, Byte, Byte, Byte)
+  nameWithType: DatImage.MakeColorTransparent(byte, byte, byte, byte, byte, byte)
+  nameWithType.vb: DatImage.MakeColorTransparent(Byte, Byte, Byte, Byte, Byte, Byte)
 - uid: JeremyAnsel.Xwa.Dat.DatImage.MakeColorTransparent*
   name: MakeColorTransparent
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_MakeColorTransparent_
@@ -789,6 +807,12 @@ references:
   commentId: M:JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream)
   fullName: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream)
   nameWithType: DatImage.ReplaceWithFile(Stream)
+- uid: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream,JeremyAnsel.Xwa.Dat.DatImageFormat)
+  name: ReplaceWithFile(Stream, DatImageFormat)
+  href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_ReplaceWithFile_System_IO_Stream_JeremyAnsel_Xwa_Dat_DatImageFormat_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream,JeremyAnsel.Xwa.Dat.DatImageFormat)
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream, JeremyAnsel.Xwa.Dat.DatImageFormat)
+  nameWithType: DatImage.ReplaceWithFile(Stream, DatImageFormat)
 - uid: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.String)
   name: ReplaceWithFile(string)
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_ReplaceWithFile_System_String_
@@ -798,6 +822,15 @@ references:
   fullName.vb: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(String)
   nameWithType: DatImage.ReplaceWithFile(string)
   nameWithType.vb: DatImage.ReplaceWithFile(String)
+- uid: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.String,JeremyAnsel.Xwa.Dat.DatImageFormat)
+  name: ReplaceWithFile(string, DatImageFormat)
+  href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_ReplaceWithFile_System_String_JeremyAnsel_Xwa_Dat_DatImageFormat_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.String,JeremyAnsel.Xwa.Dat.DatImageFormat)
+  name.vb: ReplaceWithFile(String, DatImageFormat)
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(string, JeremyAnsel.Xwa.Dat.DatImageFormat)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(String, JeremyAnsel.Xwa.Dat.DatImageFormat)
+  nameWithType: DatImage.ReplaceWithFile(string, DatImageFormat)
+  nameWithType.vb: DatImage.ReplaceWithFile(String, DatImageFormat)
 - uid: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile*
   name: ReplaceWithFile
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_ReplaceWithFile_
