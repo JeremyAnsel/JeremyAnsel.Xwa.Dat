@@ -334,6 +334,11 @@ namespace JeremyAnsel.Xwa.Dat
 
         public void ReplaceWithFile(string fileName)
         {
+            this.ReplaceWithFile(fileName, DatImageFormat.Format25C);
+        }
+
+        public void ReplaceWithFile(string fileName, DatImageFormat format)
+        {
             string ext = Path.GetExtension(fileName).ToUpperInvariant();
 
             switch (ext)
@@ -384,7 +389,7 @@ namespace JeremyAnsel.Xwa.Dat
                         this.ColorsCount = 0;
                         this.rawData = bytes;
 
-                        this.ConvertToFormat25Compressed();
+                        this.ConvertToFormat(format);
                     }
                     break;
 
@@ -394,6 +399,11 @@ namespace JeremyAnsel.Xwa.Dat
         }
 
         public void ReplaceWithFile(Stream stream)
+        {
+            this.ReplaceWithFile(stream, DatImageFormat.Format25C);
+        }
+
+        public void ReplaceWithFile(Stream stream, DatImageFormat format)
         {
             using (var file = new Bitmap(stream))
             {
@@ -432,7 +442,7 @@ namespace JeremyAnsel.Xwa.Dat
                 this.ColorsCount = 0;
                 this.rawData = bytes;
 
-                this.ConvertToFormat25Compressed();
+                this.ConvertToFormat(format);
             }
         }
 
@@ -447,18 +457,28 @@ namespace JeremyAnsel.Xwa.Dat
 
         public static DatImage FromFile(short groupId, short imageId, string fileName)
         {
+            return FromFile(groupId, imageId, fileName, DatImageFormat.Format25C);
+        }
+
+        public static DatImage FromFile(short groupId, short imageId, string fileName, DatImageFormat format)
+        {
             DatImage image = new DatImage(groupId, imageId);
 
-            image.ReplaceWithFile(fileName);
+            image.ReplaceWithFile(fileName, format);
 
             return image;
         }
 
         public static DatImage FromFile(short groupId, short imageId, Stream stream)
         {
+            return FromFile(groupId, imageId, stream, DatImageFormat.Format25C);
+        }
+
+        public static DatImage FromFile(short groupId, short imageId, Stream stream, DatImageFormat format)
+        {
             DatImage image = new DatImage(groupId, imageId);
 
-            image.ReplaceWithFile(stream);
+            image.ReplaceWithFile(stream, format);
 
             return image;
         }
