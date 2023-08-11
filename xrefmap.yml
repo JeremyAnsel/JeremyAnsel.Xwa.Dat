@@ -117,6 +117,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatFile.FileName
   nameWithType: DatFile.FileName
+- uid: JeremyAnsel.Xwa.Dat.DatFile.FlipUpsideDown
+  name: FlipUpsideDown()
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FlipUpsideDown
+  commentId: M:JeremyAnsel.Xwa.Dat.DatFile.FlipUpsideDown
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.FlipUpsideDown()
+  nameWithType: DatFile.FlipUpsideDown()
+- uid: JeremyAnsel.Xwa.Dat.DatFile.FlipUpsideDown*
+  name: FlipUpsideDown
+  href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FlipUpsideDown_
+  commentId: Overload:JeremyAnsel.Xwa.Dat.DatFile.FlipUpsideDown
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.FlipUpsideDown
+  nameWithType: DatFile.FlipUpsideDown
 - uid: JeremyAnsel.Xwa.Dat.DatFile.Format
   name: Format
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_Format
@@ -420,6 +433,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatGroup.ConvertToType
   nameWithType: DatGroup.ConvertToType
+- uid: JeremyAnsel.Xwa.Dat.DatGroup.FlipUpsideDown
+  name: FlipUpsideDown()
+  href: api/JeremyAnsel.Xwa.Dat.DatGroup.html#JeremyAnsel_Xwa_Dat_DatGroup_FlipUpsideDown
+  commentId: M:JeremyAnsel.Xwa.Dat.DatGroup.FlipUpsideDown
+  fullName: JeremyAnsel.Xwa.Dat.DatGroup.FlipUpsideDown()
+  nameWithType: DatGroup.FlipUpsideDown()
+- uid: JeremyAnsel.Xwa.Dat.DatGroup.FlipUpsideDown*
+  name: FlipUpsideDown
+  href: api/JeremyAnsel.Xwa.Dat.DatGroup.html#JeremyAnsel_Xwa_Dat_DatGroup_FlipUpsideDown_
+  commentId: Overload:JeremyAnsel.Xwa.Dat.DatGroup.FlipUpsideDown
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Dat.DatGroup.FlipUpsideDown
+  nameWithType: DatGroup.FlipUpsideDown
 - uid: JeremyAnsel.Xwa.Dat.DatGroup.Format
   name: Format
   href: api/JeremyAnsel.Xwa.Dat.DatGroup.html#JeremyAnsel_Xwa_Dat_DatGroup_Format
@@ -613,6 +639,19 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatImage.ConvertToFormatBc7
   nameWithType: DatImage.ConvertToFormatBc7
+- uid: JeremyAnsel.Xwa.Dat.DatImage.FlipUpsideDown
+  name: FlipUpsideDown()
+  href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_FlipUpsideDown
+  commentId: M:JeremyAnsel.Xwa.Dat.DatImage.FlipUpsideDown
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.FlipUpsideDown()
+  nameWithType: DatImage.FlipUpsideDown()
+- uid: JeremyAnsel.Xwa.Dat.DatImage.FlipUpsideDown*
+  name: FlipUpsideDown
+  href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_FlipUpsideDown_
+  commentId: Overload:JeremyAnsel.Xwa.Dat.DatImage.FlipUpsideDown
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.FlipUpsideDown
+  nameWithType: DatImage.FlipUpsideDown
 - uid: JeremyAnsel.Xwa.Dat.DatImage.Format
   name: Format
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_Format
