@@ -505,5 +505,13 @@ namespace JeremyAnsel.Xwa.Dat
                 .SelectMany(t => t.Images)
                 .ForAll(t => t.ConvertToFormat23());
         }
+
+        public void FlipUpsideDown()
+        {
+            this.Groups
+                .AsParallel()
+                .SelectMany(t => t.Images)
+                .ForAll(t => t.FlipUpsideDown());
+        }
     }
 }

@@ -1048,5 +1048,40 @@ namespace JeremyAnsel.Xwa.Dat
 
             this.ConvertToFormat(format);
         }
+
+        public void FlipUpsideDown()
+        {
+            DatImageFormat format = this.Format;
+
+            byte[] data = this.GetImageData();
+
+            if (data == null)
+            {
+                return;
+            }
+
+            FlipPixels(data, this.Width, this.Height);
+
+            this.ReplaceWithMemory(DatImageFormat.Format25, this.Width, this.Height, 0, data);
+
+            this.ConvertToFormat(format);
+        }
+
+        private static void FlipPixels(byte[] pixels, int width, int height)
+        {
+            int w = width;
+            int h = height;
+            int stride = w * 4;
+
+            for (int i = 0; i < h / 2; i++)
+            {
+                for (int j = 0; j < stride; j++)
+                {
+                    byte v = pixels[i * stride + j];
+                    pixels[i * stride + j] = pixels[(h - 1 - i) * stride + j];
+                    pixels[(h - 1 - i) * stride + j] = v;
+                }
+            }
+        }
     }
 }

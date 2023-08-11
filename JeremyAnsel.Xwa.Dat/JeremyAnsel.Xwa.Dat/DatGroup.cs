@@ -141,5 +141,12 @@ namespace JeremyAnsel.Xwa.Dat
                 .AsParallel()
                 .ForAll(t => t.ConvertToFormat23());
         }
+
+        public void FlipUpsideDown()
+        {
+            this.Images
+                .AsParallel()
+                .ForAll(t => t.FlipUpsideDown());
+        }
     }
 }
