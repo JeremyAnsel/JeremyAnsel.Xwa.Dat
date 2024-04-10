@@ -167,6 +167,16 @@ namespace JeremyAnsel.Xwa.Dat
                                 image.Format = DatImageFormat.Format25C;
                                 image.ColorsCount = 0;
                                 break;
+
+                            case 2:
+                                image.Format = DatImageFormat.FormatBc3;
+                                image.ColorsCount = 0;
+                                break;
+
+                            case 3:
+                                image.Format = DatImageFormat.FormatBc5;
+                                image.ColorsCount = 0;
+                                break;
                         }
                     }
 
@@ -283,6 +293,16 @@ namespace JeremyAnsel.Xwa.Dat
                             image.Format = DatImageFormat.Format25C;
                             image.ColorsCount = 0;
                             break;
+
+                        case 2:
+                            image.Format = DatImageFormat.FormatBc3;
+                            image.ColorsCount = 0;
+                            break;
+
+                        case 3:
+                            image.Format = DatImageFormat.FormatBc5;
+                            image.ColorsCount = 0;
+                            break;
                     }
                 }
 
@@ -356,6 +376,16 @@ namespace JeremyAnsel.Xwa.Dat
                     case DatImageFormat.FormatBc7:
                         format = DatImageFormat.Format25;
                         colorsCount = 0;
+                        break;
+
+                    case DatImageFormat.FormatBc3:
+                        format = DatImageFormat.Format25;
+                        colorsCount = 2;
+                        break;
+
+                    case DatImageFormat.FormatBc5:
+                        format = DatImageFormat.Format25;
+                        colorsCount = 3;
                         break;
 
                     default:
@@ -441,6 +471,14 @@ namespace JeremyAnsel.Xwa.Dat
                     this.ConvertToFormatBc7();
                     break;
 
+                case DatImageFormat.FormatBc3:
+                    this.ConvertToFormatBc3();
+                    break;
+
+                case DatImageFormat.FormatBc5:
+                    this.ConvertToFormatBc5();
+                    break;
+
                 case DatImageFormat.Format24:
                     this.ConvertToFormat24();
                     break;
@@ -480,6 +518,22 @@ namespace JeremyAnsel.Xwa.Dat
                 .AsParallel()
                 .SelectMany(t => t.Images)
                 .ForAll(t => t.ConvertToFormatBc7());
+        }
+
+        public void ConvertToFormatBc3()
+        {
+            this.Groups
+                .AsParallel()
+                .SelectMany(t => t.Images)
+                .ForAll(t => t.ConvertToFormatBc3());
+        }
+
+        public void ConvertToFormatBc5()
+        {
+            this.Groups
+                .AsParallel()
+                .SelectMany(t => t.Images)
+                .ForAll(t => t.ConvertToFormatBc5());
         }
 
         public void ConvertToFormat24()

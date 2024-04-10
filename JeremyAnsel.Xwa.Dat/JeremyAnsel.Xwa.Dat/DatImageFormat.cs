@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace JeremyAnsel.Xwa.Dat
 {
@@ -45,5 +40,17 @@ namespace JeremyAnsel.Xwa.Dat
         /// Use: in-flight.
         /// </summary>
         FormatBc7,
+
+        /// <summary>
+        /// Format: BC3 ARGB
+        /// Use: concourse.
+        /// </summary>
+        FormatBc3,
+
+        /// <summary>
+        /// Format: BC5 ARGB
+        /// Use: in-flight.
+        /// </summary>
+        FormatBc5,
     }
 }

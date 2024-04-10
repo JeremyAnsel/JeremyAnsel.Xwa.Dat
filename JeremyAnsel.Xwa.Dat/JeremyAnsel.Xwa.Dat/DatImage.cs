@@ -4,7 +4,6 @@ namespace JeremyAnsel.Xwa.Dat
     using JeremyAnsel.BcnSharp;
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Drawing.Imaging;
     using System.IO;
@@ -64,6 +63,12 @@ namespace JeremyAnsel.Xwa.Dat
                 case DatImageFormat.FormatBc7:
                     return this.ReadFormatBc7();
 
+                case DatImageFormat.FormatBc3:
+                    return this.ReadFormatBc3();
+
+                case DatImageFormat.FormatBc5:
+                    return this.ReadFormatBc5();
+
                 case DatImageFormat.Format24:
                     return this.ReadFormat24();
 
@@ -105,6 +110,20 @@ namespace JeremyAnsel.Xwa.Dat
         private byte[] ReadFormatBc7()
         {
             byte[] data = Bc7Sharp.Decode(this.rawData, this.Width, this.Height);
+
+            return data;
+        }
+
+        private byte[] ReadFormatBc3()
+        {
+            byte[] data = Bc3Sharp.Decode(this.rawData, this.Width, this.Height);
+
+            return data;
+        }
+
+        private byte[] ReadFormatBc5()
+        {
+            byte[] data = Bc5Sharp.Decode(this.rawData, this.Width, this.Height);
 
             return data;
         }
@@ -304,6 +323,10 @@ namespace JeremyAnsel.Xwa.Dat
 
                 case ".PNG":
                     format = ImageFormat.Png;
+                    break;
+
+                case ".JPG":
+                    format = ImageFormat.Jpeg;
                     break;
 
                 default:
@@ -508,6 +531,14 @@ namespace JeremyAnsel.Xwa.Dat
                     this.ConvertToFormatBc7();
                     break;
 
+                case DatImageFormat.FormatBc3:
+                    this.ConvertToFormatBc3();
+                    break;
+
+                case DatImageFormat.FormatBc5:
+                    this.ConvertToFormatBc5();
+                    break;
+
                 case DatImageFormat.Format24:
                     this.ConvertToFormat24();
                     break;
@@ -594,6 +625,48 @@ namespace JeremyAnsel.Xwa.Dat
             byte[] compressedData = Bc7Sharp.Encode(data, this.Width, this.Height);
 
             this.Format = DatImageFormat.FormatBc7;
+            this.ColorsCount = 0;
+            this.rawData = compressedData;
+        }
+
+        public void ConvertToFormatBc3()
+        {
+            if (this.Format == DatImageFormat.FormatBc3)
+            {
+                return;
+            }
+
+            byte[] data = this.GetImageData();
+
+            if (data == null)
+            {
+                return;
+            }
+
+            byte[] compressedData = Bc3Sharp.Encode(data, this.Width, this.Height);
+
+            this.Format = DatImageFormat.FormatBc3;
+            this.ColorsCount = 0;
+            this.rawData = compressedData;
+        }
+
+        public void ConvertToFormatBc5()
+        {
+            if (this.Format == DatImageFormat.FormatBc5)
+            {
+                return;
+            }
+
+            byte[] data = this.GetImageData();
+
+            if (data == null)
+            {
+                return;
+            }
+
+            byte[] compressedData = Bc5Sharp.Encode(data, this.Width, this.Height);
+
+            this.Format = DatImageFormat.FormatBc5;
             this.ColorsCount = 0;
             this.rawData = compressedData;
         }
