@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="JeremyAnsel.BcnSharp" Version="1.0.5">
+    <PackageReference Include="JeremyAnsel.BcnSharp" Version="1.0.6">
       <PrivateAssets>analyzers</PrivateAssets>
     </PackageReference>
     <PackageReference Include="JeremyAnsel.ColorQuant" Version="3.0.70" />
