@@ -355,6 +355,35 @@ namespace JeremyAnsel.Xwa.Dat
             }
         }
 
+        public void Save(Stream stream, ImageFormat format)
+        {
+            if (stream == null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
+            var data = this.GetImageData();
+
+            if (data == null)
+            {
+                return;
+            }
+
+            var handle = GCHandle.Alloc(data, GCHandleType.Pinned);
+
+            try
+            {
+                using (var bitmap = new Bitmap(this.Width, this.Height, this.Width * 4, PixelFormat.Format32bppArgb, handle.AddrOfPinnedObject()))
+                {
+                    bitmap.Save(stream, format);
+                }
+            }
+            finally
+            {
+                handle.Free();
+            }
+        }
+
         public void ReplaceWithFile(string fileName)
         {
             this.ReplaceWithFile(fileName, DatImageFormat.Format25C);
