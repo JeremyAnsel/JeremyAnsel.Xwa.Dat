@@ -433,6 +433,32 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormat7
   nameWithType: DatGroup.ConvertToFormat7
+- uid: JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc3
+  name: ConvertToFormatBc3()
+  href: api/JeremyAnsel.Xwa.Dat.DatGroup.html#JeremyAnsel_Xwa_Dat_DatGroup_ConvertToFormatBc3
+  commentId: M:JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc3
+  fullName: JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc3()
+  nameWithType: DatGroup.ConvertToFormatBc3()
+- uid: JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc3*
+  name: ConvertToFormatBc3
+  href: api/JeremyAnsel.Xwa.Dat.DatGroup.html#JeremyAnsel_Xwa_Dat_DatGroup_ConvertToFormatBc3_
+  commentId: Overload:JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc3
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc3
+  nameWithType: DatGroup.ConvertToFormatBc3
+- uid: JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc5
+  name: ConvertToFormatBc5()
+  href: api/JeremyAnsel.Xwa.Dat.DatGroup.html#JeremyAnsel_Xwa_Dat_DatGroup_ConvertToFormatBc5
+  commentId: M:JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc5
+  fullName: JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc5()
+  nameWithType: DatGroup.ConvertToFormatBc5()
+- uid: JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc5*
+  name: ConvertToFormatBc5
+  href: api/JeremyAnsel.Xwa.Dat.DatGroup.html#JeremyAnsel_Xwa_Dat_DatGroup_ConvertToFormatBc5_
+  commentId: Overload:JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc5
+  isSpec: "True"
+  fullName: JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc5
+  nameWithType: DatGroup.ConvertToFormatBc5
 - uid: JeremyAnsel.Xwa.Dat.DatGroup.ConvertToFormatBc7
   name: ConvertToFormatBc7()
   href: api/JeremyAnsel.Xwa.Dat.DatGroup.html#JeremyAnsel_Xwa_Dat_DatGroup_ConvertToFormatBc7
@@ -945,6 +971,12 @@ references:
   isSpec: "True"
   fullName: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithMemory
   nameWithType: DatImage.ReplaceWithMemory
+- uid: JeremyAnsel.Xwa.Dat.DatImage.Save(System.IO.Stream,System.Drawing.Imaging.ImageFormat)
+  name: Save(Stream, ImageFormat)
+  href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_Save_System_IO_Stream_System_Drawing_Imaging_ImageFormat_
+  commentId: M:JeremyAnsel.Xwa.Dat.DatImage.Save(System.IO.Stream,System.Drawing.Imaging.ImageFormat)
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.Save(System.IO.Stream, System.Drawing.Imaging.ImageFormat)
+  nameWithType: DatImage.Save(Stream, ImageFormat)
 - uid: JeremyAnsel.Xwa.Dat.DatImage.Save(System.String)
   name: Save(string)
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_Save_System_String_
