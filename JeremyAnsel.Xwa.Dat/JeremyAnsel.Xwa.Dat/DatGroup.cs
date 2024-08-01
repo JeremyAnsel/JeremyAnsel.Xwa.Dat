@@ -83,6 +83,14 @@ namespace JeremyAnsel.Xwa.Dat
                     this.ConvertToFormatBc7();
                     break;
 
+                case DatImageFormat.FormatBc3:
+                    this.ConvertToFormatBc3();
+                    break;
+
+                case DatImageFormat.FormatBc5:
+                    this.ConvertToFormatBc5();
+                    break;
+
                 case DatImageFormat.Format24:
                     this.ConvertToFormat24();
                     break;
@@ -119,6 +127,20 @@ namespace JeremyAnsel.Xwa.Dat
             this.Images
                 .AsParallel()
                 .ForAll(t => t.ConvertToFormatBc7());
+        }
+
+        public void ConvertToFormatBc3()
+        {
+            this.Images
+                .AsParallel()
+                .ForAll(t => t.ConvertToFormatBc3());
+        }
+
+        public void ConvertToFormatBc5()
+        {
+            this.Images
+                .AsParallel()
+                .ForAll(t => t.ConvertToFormatBc5());
         }
 
         public void ConvertToFormat24()
