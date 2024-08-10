@@ -195,19 +195,22 @@ references:
   fullName: JeremyAnsel.Xwa.Dat.DatFile.FromFile
   nameWithType: DatFile.FromFile
 - uid: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream)
-  name: FromStream(Stream)
+  name: FromStream(Stream?)
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FromStream_System_IO_Stream_
   commentId: M:JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream)
-  fullName: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream)
-  nameWithType: DatFile.FromStream(Stream)
+  name.vb: FromStream(Stream)
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream?)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream)
+  nameWithType: DatFile.FromStream(Stream?)
+  nameWithType.vb: DatFile.FromStream(Stream)
 - uid: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream,System.Boolean)
-  name: FromStream(Stream, bool)
+  name: FromStream(Stream?, bool)
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_FromStream_System_IO_Stream_System_Boolean_
   commentId: M:JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream,System.Boolean)
   name.vb: FromStream(Stream, Boolean)
-  fullName: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream, bool)
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream?, bool)
   fullName.vb: JeremyAnsel.Xwa.Dat.DatFile.FromStream(System.IO.Stream, Boolean)
-  nameWithType: DatFile.FromStream(Stream, bool)
+  nameWithType: DatFile.FromStream(Stream?, bool)
   nameWithType.vb: DatFile.FromStream(Stream, Boolean)
 - uid: JeremyAnsel.Xwa.Dat.DatFile.FromStream*
   name: FromStream
@@ -249,13 +252,13 @@ references:
   fullName: JeremyAnsel.Xwa.Dat.DatFile.GetImageById
   nameWithType: DatFile.GetImageById
 - uid: JeremyAnsel.Xwa.Dat.DatFile.GetImageDataById(System.IO.Stream,System.Int16,System.Int16)
-  name: GetImageDataById(Stream, short, short)
+  name: GetImageDataById(Stream?, short, short)
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_GetImageDataById_System_IO_Stream_System_Int16_System_Int16_
   commentId: M:JeremyAnsel.Xwa.Dat.DatFile.GetImageDataById(System.IO.Stream,System.Int16,System.Int16)
   name.vb: GetImageDataById(Stream, Short, Short)
-  fullName: JeremyAnsel.Xwa.Dat.DatFile.GetImageDataById(System.IO.Stream, short, short)
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.GetImageDataById(System.IO.Stream?, short, short)
   fullName.vb: JeremyAnsel.Xwa.Dat.DatFile.GetImageDataById(System.IO.Stream, Short, Short)
-  nameWithType: DatFile.GetImageDataById(Stream, short, short)
+  nameWithType: DatFile.GetImageDataById(Stream?, short, short)
   nameWithType.vb: DatFile.GetImageDataById(Stream, Short, Short)
 - uid: JeremyAnsel.Xwa.Dat.DatFile.GetImageDataById(System.String,System.Int16,System.Int16)
   name: GetImageDataById(string, short, short)
@@ -313,11 +316,14 @@ references:
   fullName: JeremyAnsel.Xwa.Dat.DatFile.Images
   nameWithType: DatFile.Images
 - uid: JeremyAnsel.Xwa.Dat.DatFile.Save(System.IO.Stream)
-  name: Save(Stream)
+  name: Save(Stream?)
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_Save_System_IO_Stream_
   commentId: M:JeremyAnsel.Xwa.Dat.DatFile.Save(System.IO.Stream)
-  fullName: JeremyAnsel.Xwa.Dat.DatFile.Save(System.IO.Stream)
-  nameWithType: DatFile.Save(Stream)
+  name.vb: Save(Stream)
+  fullName: JeremyAnsel.Xwa.Dat.DatFile.Save(System.IO.Stream?)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatFile.Save(System.IO.Stream)
+  nameWithType: DatFile.Save(Stream?)
+  nameWithType.vb: DatFile.Save(Stream)
 - uid: JeremyAnsel.Xwa.Dat.DatFile.Save(System.String)
   name: Save(string)
   href: api/JeremyAnsel.Xwa.Dat.DatFile.html#JeremyAnsel_Xwa_Dat_DatFile_Save_System_String_
@@ -744,22 +750,22 @@ references:
   fullName: JeremyAnsel.Xwa.Dat.DatImage.Format
   nameWithType: DatImage.Format
 - uid: JeremyAnsel.Xwa.Dat.DatImage.FromFile(System.Int16,System.Int16,System.IO.Stream)
-  name: FromFile(short, short, Stream)
+  name: FromFile(short, short, Stream?)
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_FromFile_System_Int16_System_Int16_System_IO_Stream_
   commentId: M:JeremyAnsel.Xwa.Dat.DatImage.FromFile(System.Int16,System.Int16,System.IO.Stream)
   name.vb: FromFile(Short, Short, Stream)
-  fullName: JeremyAnsel.Xwa.Dat.DatImage.FromFile(short, short, System.IO.Stream)
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.FromFile(short, short, System.IO.Stream?)
   fullName.vb: JeremyAnsel.Xwa.Dat.DatImage.FromFile(Short, Short, System.IO.Stream)
-  nameWithType: DatImage.FromFile(short, short, Stream)
+  nameWithType: DatImage.FromFile(short, short, Stream?)
   nameWithType.vb: DatImage.FromFile(Short, Short, Stream)
 - uid: JeremyAnsel.Xwa.Dat.DatImage.FromFile(System.Int16,System.Int16,System.IO.Stream,JeremyAnsel.Xwa.Dat.DatImageFormat)
-  name: FromFile(short, short, Stream, DatImageFormat)
+  name: FromFile(short, short, Stream?, DatImageFormat)
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_FromFile_System_Int16_System_Int16_System_IO_Stream_JeremyAnsel_Xwa_Dat_DatImageFormat_
   commentId: M:JeremyAnsel.Xwa.Dat.DatImage.FromFile(System.Int16,System.Int16,System.IO.Stream,JeremyAnsel.Xwa.Dat.DatImageFormat)
   name.vb: FromFile(Short, Short, Stream, DatImageFormat)
-  fullName: JeremyAnsel.Xwa.Dat.DatImage.FromFile(short, short, System.IO.Stream, JeremyAnsel.Xwa.Dat.DatImageFormat)
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.FromFile(short, short, System.IO.Stream?, JeremyAnsel.Xwa.Dat.DatImageFormat)
   fullName.vb: JeremyAnsel.Xwa.Dat.DatImage.FromFile(Short, Short, System.IO.Stream, JeremyAnsel.Xwa.Dat.DatImageFormat)
-  nameWithType: DatImage.FromFile(short, short, Stream, DatImageFormat)
+  nameWithType: DatImage.FromFile(short, short, Stream?, DatImageFormat)
   nameWithType.vb: DatImage.FromFile(Short, Short, Stream, DatImageFormat)
 - uid: JeremyAnsel.Xwa.Dat.DatImage.FromFile(System.Int16,System.Int16,System.String)
   name: FromFile(short, short, string)
@@ -787,13 +793,13 @@ references:
   fullName: JeremyAnsel.Xwa.Dat.DatImage.FromFile
   nameWithType: DatImage.FromFile
 - uid: JeremyAnsel.Xwa.Dat.DatImage.FromMemory(System.Int16,System.Int16,JeremyAnsel.Xwa.Dat.DatImageFormat,System.Int16,System.Int16,System.Int16,System.Byte[])
-  name: FromMemory(short, short, DatImageFormat, short, short, short, byte[])
+  name: FromMemory(short, short, DatImageFormat, short, short, short, byte[]?)
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_FromMemory_System_Int16_System_Int16_JeremyAnsel_Xwa_Dat_DatImageFormat_System_Int16_System_Int16_System_Int16_System_Byte___
   commentId: M:JeremyAnsel.Xwa.Dat.DatImage.FromMemory(System.Int16,System.Int16,JeremyAnsel.Xwa.Dat.DatImageFormat,System.Int16,System.Int16,System.Int16,System.Byte[])
   name.vb: FromMemory(Short, Short, DatImageFormat, Short, Short, Short, Byte())
-  fullName: JeremyAnsel.Xwa.Dat.DatImage.FromMemory(short, short, JeremyAnsel.Xwa.Dat.DatImageFormat, short, short, short, byte[])
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.FromMemory(short, short, JeremyAnsel.Xwa.Dat.DatImageFormat, short, short, short, byte[]?)
   fullName.vb: JeremyAnsel.Xwa.Dat.DatImage.FromMemory(Short, Short, JeremyAnsel.Xwa.Dat.DatImageFormat, Short, Short, Short, Byte())
-  nameWithType: DatImage.FromMemory(short, short, DatImageFormat, short, short, short, byte[])
+  nameWithType: DatImage.FromMemory(short, short, DatImageFormat, short, short, short, byte[]?)
   nameWithType.vb: DatImage.FromMemory(Short, Short, DatImageFormat, Short, Short, Short, Byte())
 - uid: JeremyAnsel.Xwa.Dat.DatImage.FromMemory*
   name: FromMemory
@@ -919,17 +925,23 @@ references:
   fullName: JeremyAnsel.Xwa.Dat.DatImage.OffsetY
   nameWithType: DatImage.OffsetY
 - uid: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream)
-  name: ReplaceWithFile(Stream)
+  name: ReplaceWithFile(Stream?)
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_ReplaceWithFile_System_IO_Stream_
   commentId: M:JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream)
-  fullName: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream)
-  nameWithType: DatImage.ReplaceWithFile(Stream)
+  name.vb: ReplaceWithFile(Stream)
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream?)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream)
+  nameWithType: DatImage.ReplaceWithFile(Stream?)
+  nameWithType.vb: DatImage.ReplaceWithFile(Stream)
 - uid: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream,JeremyAnsel.Xwa.Dat.DatImageFormat)
-  name: ReplaceWithFile(Stream, DatImageFormat)
+  name: ReplaceWithFile(Stream?, DatImageFormat)
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_ReplaceWithFile_System_IO_Stream_JeremyAnsel_Xwa_Dat_DatImageFormat_
   commentId: M:JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream,JeremyAnsel.Xwa.Dat.DatImageFormat)
-  fullName: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream, JeremyAnsel.Xwa.Dat.DatImageFormat)
-  nameWithType: DatImage.ReplaceWithFile(Stream, DatImageFormat)
+  name.vb: ReplaceWithFile(Stream, DatImageFormat)
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream?, JeremyAnsel.Xwa.Dat.DatImageFormat)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.IO.Stream, JeremyAnsel.Xwa.Dat.DatImageFormat)
+  nameWithType: DatImage.ReplaceWithFile(Stream?, DatImageFormat)
+  nameWithType.vb: DatImage.ReplaceWithFile(Stream, DatImageFormat)
 - uid: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile(System.String)
   name: ReplaceWithFile(string)
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_ReplaceWithFile_System_String_
@@ -956,13 +968,13 @@ references:
   fullName: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithFile
   nameWithType: DatImage.ReplaceWithFile
 - uid: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithMemory(JeremyAnsel.Xwa.Dat.DatImageFormat,System.Int16,System.Int16,System.Int16,System.Byte[])
-  name: ReplaceWithMemory(DatImageFormat, short, short, short, byte[])
+  name: ReplaceWithMemory(DatImageFormat, short, short, short, byte[]?)
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_ReplaceWithMemory_JeremyAnsel_Xwa_Dat_DatImageFormat_System_Int16_System_Int16_System_Int16_System_Byte___
   commentId: M:JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithMemory(JeremyAnsel.Xwa.Dat.DatImageFormat,System.Int16,System.Int16,System.Int16,System.Byte[])
   name.vb: ReplaceWithMemory(DatImageFormat, Short, Short, Short, Byte())
-  fullName: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithMemory(JeremyAnsel.Xwa.Dat.DatImageFormat, short, short, short, byte[])
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithMemory(JeremyAnsel.Xwa.Dat.DatImageFormat, short, short, short, byte[]?)
   fullName.vb: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithMemory(JeremyAnsel.Xwa.Dat.DatImageFormat, Short, Short, Short, Byte())
-  nameWithType: DatImage.ReplaceWithMemory(DatImageFormat, short, short, short, byte[])
+  nameWithType: DatImage.ReplaceWithMemory(DatImageFormat, short, short, short, byte[]?)
   nameWithType.vb: DatImage.ReplaceWithMemory(DatImageFormat, Short, Short, Short, Byte())
 - uid: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithMemory*
   name: ReplaceWithMemory
@@ -972,11 +984,14 @@ references:
   fullName: JeremyAnsel.Xwa.Dat.DatImage.ReplaceWithMemory
   nameWithType: DatImage.ReplaceWithMemory
 - uid: JeremyAnsel.Xwa.Dat.DatImage.Save(System.IO.Stream,System.Drawing.Imaging.ImageFormat)
-  name: Save(Stream, ImageFormat)
+  name: Save(Stream?, ImageFormat)
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_Save_System_IO_Stream_System_Drawing_Imaging_ImageFormat_
   commentId: M:JeremyAnsel.Xwa.Dat.DatImage.Save(System.IO.Stream,System.Drawing.Imaging.ImageFormat)
-  fullName: JeremyAnsel.Xwa.Dat.DatImage.Save(System.IO.Stream, System.Drawing.Imaging.ImageFormat)
-  nameWithType: DatImage.Save(Stream, ImageFormat)
+  name.vb: Save(Stream, ImageFormat)
+  fullName: JeremyAnsel.Xwa.Dat.DatImage.Save(System.IO.Stream?, System.Drawing.Imaging.ImageFormat)
+  fullName.vb: JeremyAnsel.Xwa.Dat.DatImage.Save(System.IO.Stream, System.Drawing.Imaging.ImageFormat)
+  nameWithType: DatImage.Save(Stream?, ImageFormat)
+  nameWithType.vb: DatImage.Save(Stream, ImageFormat)
 - uid: JeremyAnsel.Xwa.Dat.DatImage.Save(System.String)
   name: Save(string)
   href: api/JeremyAnsel.Xwa.Dat.DatImage.html#JeremyAnsel_Xwa_Dat_DatImage_Save_System_String_
