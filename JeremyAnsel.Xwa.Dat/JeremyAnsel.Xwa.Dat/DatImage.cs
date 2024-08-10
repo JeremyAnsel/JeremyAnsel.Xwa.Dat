@@ -38,14 +38,14 @@ namespace JeremyAnsel.Xwa.Dat
 
         public int OffsetY { get; set; }
 
-        internal byte[] rawData;
+        internal byte[]? rawData;
 
-        public byte[] GetRawData()
+        public byte[]? GetRawData()
         {
             return this.rawData;
         }
 
-        public byte[] GetImageData()
+        public byte[]? GetImageData()
         {
             if (this.rawData == null)
             {
@@ -84,19 +84,19 @@ namespace JeremyAnsel.Xwa.Dat
 
         private byte[] ReadFormat25()
         {
-            return (byte[])this.rawData.Clone();
+            return (byte[])this.rawData!.Clone();
         }
 
         private byte[] ReadFormat25Compressed()
         {
             byte[] coderProperties = new byte[5];
-            Array.Copy(this.rawData, 0, coderProperties, 0, 5);
+            Array.Copy(this.rawData!, 0, coderProperties, 0, 5);
 
             byte[] data = new byte[this.Width * this.Height * 4];
 
             using (var imageDecompressedStream = new MemoryStream(data, true))
             {
-                using (var imageStream = new MemoryStream(this.rawData, 5, this.rawData.Length - 5))
+                using (var imageStream = new MemoryStream(this.rawData!, 5, this.rawData!.Length - 5))
                 {
                     var decoder = new SevenZip.Compression.LZMA.Decoder();
                     decoder.SetDecoderProperties(coderProperties);
@@ -109,21 +109,21 @@ namespace JeremyAnsel.Xwa.Dat
 
         private byte[] ReadFormatBc7()
         {
-            byte[] data = Bc7Sharp.Decode(this.rawData, this.Width, this.Height);
+            byte[] data = Bc7Sharp.Decode(this.rawData!, this.Width, this.Height);
 
             return data;
         }
 
         private byte[] ReadFormatBc3()
         {
-            byte[] data = Bc3Sharp.Decode(this.rawData, this.Width, this.Height);
+            byte[] data = Bc3Sharp.Decode(this.rawData!, this.Width, this.Height);
 
             return data;
         }
 
         private byte[] ReadFormatBc5()
         {
-            byte[] data = Bc5Sharp.Decode(this.rawData, this.Width, this.Height);
+            byte[] data = Bc5Sharp.Decode(this.rawData!, this.Width, this.Height);
 
             return data;
         }
@@ -139,7 +139,7 @@ namespace JeremyAnsel.Xwa.Dat
 
             for (int i = 0; i < length; i++)
             {
-                byte pal = this.rawData[dataOffset + i * 2 + 0];
+                byte pal = this.rawData![dataOffset + i * 2 + 0];
                 byte alpha = this.rawData[dataOffset + i * 2 + 1];
 
                 byte r = this.rawData[colorsOffset + pal * 3 + 0];
@@ -166,7 +166,7 @@ namespace JeremyAnsel.Xwa.Dat
 
             for (int y = 0; y < this.Height; y++)
             {
-                byte opCount = this.rawData[dataOffset + index];
+                byte opCount = this.rawData![dataOffset + index];
                 index++;
 
                 int x = 0;
@@ -231,7 +231,7 @@ namespace JeremyAnsel.Xwa.Dat
 
             for (int y = 0; y < this.Height; y++)
             {
-                byte opCount = this.rawData[dataOffset + index];
+                byte opCount = this.rawData![dataOffset + index];
                 index++;
 
                 int x = 0;
@@ -355,7 +355,7 @@ namespace JeremyAnsel.Xwa.Dat
             }
         }
 
-        public void Save(Stream stream, ImageFormat format)
+        public void Save(Stream? stream, ImageFormat format)
         {
             if (stream == null)
             {
@@ -450,13 +450,18 @@ namespace JeremyAnsel.Xwa.Dat
             }
         }
 
-        public void ReplaceWithFile(Stream stream)
+        public void ReplaceWithFile(Stream? stream)
         {
             this.ReplaceWithFile(stream, DatImageFormat.Format25C);
         }
 
-        public void ReplaceWithFile(Stream stream, DatImageFormat format)
+        public void ReplaceWithFile(Stream? stream, DatImageFormat format)
         {
+            if (stream is null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
             using (var file = new Bitmap(stream))
             {
                 if (file.Width > short.MaxValue)
@@ -498,7 +503,7 @@ namespace JeremyAnsel.Xwa.Dat
             }
         }
 
-        public void ReplaceWithMemory(DatImageFormat format, short width, short height, short colorsCount, byte[] data)
+        public void ReplaceWithMemory(DatImageFormat format, short width, short height, short colorsCount, byte[]? data)
         {
             this.Format = format;
             this.Width = width;
@@ -521,13 +526,23 @@ namespace JeremyAnsel.Xwa.Dat
             return image;
         }
 
-        public static DatImage FromFile(short groupId, short imageId, Stream stream)
+        public static DatImage FromFile(short groupId, short imageId, Stream? stream)
         {
+            if (stream is null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
             return FromFile(groupId, imageId, stream, DatImageFormat.Format25C);
         }
 
-        public static DatImage FromFile(short groupId, short imageId, Stream stream, DatImageFormat format)
+        public static DatImage FromFile(short groupId, short imageId, Stream? stream, DatImageFormat format)
         {
+            if (stream is null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
             DatImage image = new DatImage(groupId, imageId);
 
             image.ReplaceWithFile(stream, format);
@@ -535,7 +550,7 @@ namespace JeremyAnsel.Xwa.Dat
             return image;
         }
 
-        public static DatImage FromMemory(short groupId, short imageId, DatImageFormat format, short width, short height, short colorsCount, byte[] rawData)
+        public static DatImage FromMemory(short groupId, short imageId, DatImageFormat format, short width, short height, short colorsCount, byte[]? rawData)
         {
             DatImage image = new DatImage(groupId, imageId);
 
@@ -611,7 +626,7 @@ namespace JeremyAnsel.Xwa.Dat
                 return;
             }
 
-            byte[] data = this.GetImageData();
+            byte[]? data = this.GetImageData();
 
             if (data == null)
             {
@@ -644,7 +659,7 @@ namespace JeremyAnsel.Xwa.Dat
                 return;
             }
 
-            byte[] data = this.GetImageData();
+            byte[]? data = this.GetImageData();
 
             if (data == null)
             {
@@ -665,7 +680,7 @@ namespace JeremyAnsel.Xwa.Dat
                 return;
             }
 
-            byte[] data = this.GetImageData();
+            byte[]? data = this.GetImageData();
 
             if (data == null)
             {
@@ -686,7 +701,7 @@ namespace JeremyAnsel.Xwa.Dat
                 return;
             }
 
-            byte[] data = this.GetImageData();
+            byte[]? data = this.GetImageData();
 
             if (data == null)
             {
@@ -843,7 +858,7 @@ namespace JeremyAnsel.Xwa.Dat
 
                     for (; i < tLength; i += 2)
                     {
-                        if (t.Array[i + 1] >= alphaValue)
+                        if (t.Array![i + 1] >= alphaValue)
                         {
                             break;
                         }
@@ -851,14 +866,14 @@ namespace JeremyAnsel.Xwa.Dat
                         n++;
                     }
 
-                    addSegment(values, t.Array, false, c, n);
+                    addSegment(values, t.Array!, false, c, n);
 
                     c = i;
                     n = 0;
 
                     for (; i < tLength; i += 2)
                     {
-                        if (t.Array[i + 1] < alphaValue)
+                        if (t.Array![i + 1] < alphaValue)
                         {
                             break;
                         }
@@ -866,7 +881,7 @@ namespace JeremyAnsel.Xwa.Dat
                         n++;
                     }
 
-                    addSegment(values, t.Array, true, c, n);
+                    addSegment(values, t.Array!, true, c, n);
                 }
 
                 return values;
@@ -901,7 +916,7 @@ namespace JeremyAnsel.Xwa.Dat
 
                         for (int i = block.Item2.Offset; i < block.Item2.Offset + block.Item2.Count; i += 2)
                         {
-                            data.Add(block.Item2.Array[i]);
+                            data.Add(block.Item2.Array![i]);
                         }
                     }
                 }
@@ -979,7 +994,7 @@ namespace JeremyAnsel.Xwa.Dat
 
                     for (; i < tLength; i += 2)
                     {
-                        if (t.Array[i + 1] != 0)
+                        if (t.Array![i + 1] != 0)
                         {
                             break;
                         }
@@ -987,14 +1002,14 @@ namespace JeremyAnsel.Xwa.Dat
                         n++;
                     }
 
-                    addSegment(values, t.Array, 0, c, n);
+                    addSegment(values, t.Array!, 0, c, n);
 
                     c = i;
                     n = 0;
 
                     for (; i < tLength; i += 2)
                     {
-                        if (t.Array[i + 1] != 0xFF)
+                        if (t.Array![i + 1] != 0xFF)
                         {
                             break;
                         }
@@ -1002,14 +1017,14 @@ namespace JeremyAnsel.Xwa.Dat
                         n++;
                     }
 
-                    addSegment(values, t.Array, 1, c, n);
+                    addSegment(values, t.Array!, 1, c, n);
 
                     c = i;
                     n = 0;
 
                     for (; i < tLength; i += 2)
                     {
-                        if (t.Array[i + 1] == 0 || t.Array[i + 1] == 0xFF)
+                        if (t.Array![i + 1] == 0 || t.Array[i + 1] == 0xFF)
                         {
                             break;
                         }
@@ -1017,7 +1032,7 @@ namespace JeremyAnsel.Xwa.Dat
                         n++;
                     }
 
-                    addSegment(values, t.Array, 2, c, n);
+                    addSegment(values, t.Array!, 2, c, n);
                 }
 
                 if (values.Sum(i => i.Item2.Count) != this.Width * 2)
@@ -1057,7 +1072,7 @@ namespace JeremyAnsel.Xwa.Dat
 
                         for (int i = block.Item2.Offset; i < block.Item2.Offset + block.Item2.Count; i += 2)
                         {
-                            data.Add(block.Item2.Array[i]);
+                            data.Add(block.Item2.Array![i]);
                         }
                     }
                     else
@@ -1066,7 +1081,7 @@ namespace JeremyAnsel.Xwa.Dat
 
                         for (int i = block.Item2.Offset; i < block.Item2.Offset + block.Item2.Count; i += 2)
                         {
-                            data.Add(block.Item2.Array[i + 1]);
+                            data.Add(block.Item2.Array![i + 1]);
                             data.Add(block.Item2.Array[i]);
                         }
                     }
@@ -1155,7 +1170,7 @@ namespace JeremyAnsel.Xwa.Dat
         {
             DatImageFormat format = this.Format;
 
-            byte[] data = this.GetImageData();
+            byte[]? data = this.GetImageData();
 
             if (data == null)
             {

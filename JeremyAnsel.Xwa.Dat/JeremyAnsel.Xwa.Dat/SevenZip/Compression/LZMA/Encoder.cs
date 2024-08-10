@@ -135,7 +135,7 @@ namespace SevenZip.Compression.LZMA
 				}
 			}
 
-			Encoder2[] m_Coders;
+			Encoder2[]? m_Coders;
 			int m_NumPrevBits;
 			int m_NumPosBits;
 			uint m_PosMask;
@@ -157,11 +157,11 @@ namespace SevenZip.Compression.LZMA
 			{
 				uint numStates = (uint)1 << (m_NumPrevBits + m_NumPosBits);
 				for (uint i = 0; i < numStates; i++)
-					m_Coders[i].Init();
+					m_Coders![i].Init();
 			}
 
 			public Encoder2 GetSubCoder(uint pos, byte prevByte)
-			{ return m_Coders[((pos & m_PosMask) << m_NumPrevBits) + (uint)(prevByte >> (8 - m_NumPrevBits))]; }
+			{ return m_Coders![((pos & m_PosMask) << m_NumPrevBits) + (uint)(prevByte >> (8 - m_NumPrevBits))]; }
 		}
 
 		class LenEncoder
@@ -302,7 +302,7 @@ namespace SevenZip.Compression.LZMA
 		};
 
         readonly Optimal[] _optimum = new Optimal[kNumOpts];
-		LZ.IMatchFinder _matchFinder = null;
+		LZ.IMatchFinder? _matchFinder = null;
         readonly RangeCoder.Encoder _rangeEncoder = new RangeCoder.Encoder();
         readonly RangeCoder.BitEncoder[] _isMatch = new RangeCoder.BitEncoder[Base.kNumStates << Base.kNumPosStatesBitsMax];
         readonly RangeCoder.BitEncoder[] _isRep = new RangeCoder.BitEncoder[Base.kNumStates];
@@ -346,7 +346,7 @@ namespace SevenZip.Compression.LZMA
 
         long nowPos64;
 		bool _finished;
-		System.IO.Stream _inStream;
+		System.IO.Stream? _inStream;
 
 		EMatchFinderType _matchFinderType = EMatchFinderType.BT4;
 		bool _writeEndMark = false;
@@ -425,7 +425,7 @@ namespace SevenZip.Compression.LZMA
 		void ReadMatchDistances(out uint lenRes, out uint numDistancePairs)
 		{
 			lenRes = 0;
-			numDistancePairs = _matchFinder.GetMatches(_matchDistances);
+			numDistancePairs = _matchFinder!.GetMatches(_matchDistances);
 			if (numDistancePairs > 0)
 			{
 				lenRes = _matchDistances[numDistancePairs - 2];
@@ -441,7 +441,7 @@ namespace SevenZip.Compression.LZMA
 		{
 			if (num > 0)
 			{
-				_matchFinder.Skip(num);
+				_matchFinder!.Skip(num);
 				_additionalOffset += num;
 			}
 		}
@@ -553,7 +553,7 @@ namespace SevenZip.Compression.LZMA
 				_longestMatchWasFound = false;
 			}
 
-            uint numAvailableBytes = _matchFinder.GetNumAvailableBytes() + 1;
+            uint numAvailableBytes = _matchFinder!.GetNumAvailableBytes() + 1;
 			if (numAvailableBytes < 2)
 			{
 				backRes = 0xFFFFFFFF;
@@ -1061,7 +1061,7 @@ namespace SevenZip.Compression.LZMA
 
 			if (_inStream != null)
 			{
-				_matchFinder.SetStream(_inStream);
+				_matchFinder!.SetStream(_inStream);
 				_matchFinder.Init();
 				_needReleaseMFStream = true;
 				_inStream = null;
@@ -1077,7 +1077,7 @@ namespace SevenZip.Compression.LZMA
             long progressPosValuePrev = nowPos64;
 			if (nowPos64 == 0)
 			{
-				if (_matchFinder.GetNumAvailableBytes() == 0)
+				if (_matchFinder!.GetNumAvailableBytes() == 0)
 				{
 					Flush((uint)nowPos64);
 					return;
@@ -1093,7 +1093,7 @@ namespace SevenZip.Compression.LZMA
 				_additionalOffset--;
 				nowPos64++;
 			}
-			if (_matchFinder.GetNumAvailableBytes() == 0)
+			if (_matchFinder!.GetNumAvailableBytes() == 0)
 			{
 				Flush((uint)nowPos64);
 				return;
@@ -1263,7 +1263,7 @@ namespace SevenZip.Compression.LZMA
 
 
 		public void Code(System.IO.Stream inStream, System.IO.Stream outStream,
-            long inSize, long outSize, ICodeProgress progress)
+            long inSize, long outSize, ICodeProgress? progress)
 		{
 			_needReleaseMFStream = false;
 			try

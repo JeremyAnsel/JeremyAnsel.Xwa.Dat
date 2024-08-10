@@ -96,7 +96,7 @@ namespace SevenZip.Compression.LZMA
 				}
 			}
 
-			Decoder2[] m_Coders;
+			Decoder2[]? m_Coders;
 			int m_NumPrevBits;
 			int m_NumPosBits;
 			uint m_PosMask;
@@ -119,17 +119,17 @@ namespace SevenZip.Compression.LZMA
 			{
 				uint numStates = (uint)1 << (m_NumPrevBits + m_NumPosBits);
 				for (uint i = 0; i < numStates; i++)
-					m_Coders[i].Init();
+					m_Coders![i].Init();
 			}
 
 			uint GetState(uint pos, byte prevByte)
 			{ return ((pos & m_PosMask) << m_NumPrevBits) + (uint)(prevByte >> (8 - m_NumPrevBits)); }
 
 			public byte DecodeNormal(RangeCoder.Decoder rangeDecoder, uint pos, byte prevByte)
-			{ return m_Coders[GetState(pos, prevByte)].DecodeNormal(rangeDecoder); }
+			{ return m_Coders![GetState(pos, prevByte)].DecodeNormal(rangeDecoder); }
 
 			public byte DecodeWithMatchByte(RangeCoder.Decoder rangeDecoder, uint pos, byte prevByte, byte matchByte)
-			{ return m_Coders[GetState(pos, prevByte)].DecodeWithMatchByte(rangeDecoder, matchByte); }
+			{ return m_Coders![GetState(pos, prevByte)].DecodeWithMatchByte(rangeDecoder, matchByte); }
 		};
 
         readonly LZ.OutWindow m_OutWindow = new LZ.OutWindow();
@@ -223,7 +223,7 @@ namespace SevenZip.Compression.LZMA
 		}
 
 		public void Code(System.IO.Stream inStream, System.IO.Stream outStream,
-            long inSize, long outSize, ICodeProgress progress)
+            long inSize, long outSize, ICodeProgress? progress)
 		{
 			Init(inStream, outStream);
 

@@ -54,7 +54,7 @@ namespace JeremyAnsel.Xwa.Dat
             }
         }
 
-        public DatImage GetImageById(short imageId)
+        public DatImage? GetImageById(short imageId)
         {
             foreach (var image in this.Images)
             {

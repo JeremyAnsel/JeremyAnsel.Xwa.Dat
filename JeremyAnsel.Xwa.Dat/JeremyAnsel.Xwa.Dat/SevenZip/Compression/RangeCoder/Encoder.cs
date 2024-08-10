@@ -6,7 +6,7 @@ namespace SevenZip.Compression.RangeCoder
 	{
 		public const uint kTopValue = (1 << 24);
 
-		System.IO.Stream Stream;
+		System.IO.Stream? Stream;
 
 		public ulong Low;
 		public uint Range;
@@ -15,7 +15,7 @@ namespace SevenZip.Compression.RangeCoder
 
 		long StartPosition;
 
-		public void SetStream(System.IO.Stream stream)
+		public void SetStream(System.IO.Stream? stream)
 		{
 			Stream = stream;
 		}
@@ -27,7 +27,7 @@ namespace SevenZip.Compression.RangeCoder
 
 		public void Init()
 		{
-			StartPosition = Stream.Position;
+			StartPosition = Stream!.Position;
 
 			Low = 0;
 			Range = 0xFFFFFFFF;
@@ -43,12 +43,12 @@ namespace SevenZip.Compression.RangeCoder
 
 		public void FlushStream()
 		{
-			Stream.Flush();
+			Stream!.Flush();
 		}
 
 		public void CloseStream()
 		{
-			Stream.Close();
+			Stream!.Close();
 		}
 
 		public void Encode(uint start, uint size, uint total)
@@ -69,7 +69,7 @@ namespace SevenZip.Compression.RangeCoder
 				byte temp = _cache;
 				do
 				{
-					Stream.WriteByte((byte)(temp + (Low >> 32)));
+					Stream!.WriteByte((byte)(temp + (Low >> 32)));
 					temp = 0xFF;
 				}
 				while (--_cacheSize != 0);
@@ -114,7 +114,7 @@ namespace SevenZip.Compression.RangeCoder
 		public long GetProcessedSizeAdd()
 		{
 			return _cacheSize +
-				Stream.Position - StartPosition + 4;
+				Stream!.Position - StartPosition + 4;
 			// (long)Stream.GetProcessedSize();
 		}
 	}
@@ -125,9 +125,9 @@ namespace SevenZip.Compression.RangeCoder
 		public uint Range;
 		public uint Code;
 		// public Buffer.InBuffer Stream = new Buffer.InBuffer(1 << 16);
-		public System.IO.Stream Stream;
+		public System.IO.Stream? Stream;
 
-		public void Init(System.IO.Stream stream)
+		public void Init(System.IO.Stream? stream)
 		{
 			// Stream.Init(stream);
 			Stream = stream;
@@ -135,7 +135,7 @@ namespace SevenZip.Compression.RangeCoder
 			Code = 0;
 			Range = 0xFFFFFFFF;
 			for (int i = 0; i < 5; i++)
-				Code = (Code << 8) | (byte)Stream.ReadByte();
+				Code = (Code << 8) | (byte)Stream!.ReadByte();
 		}
 
 		public void ReleaseStream()
@@ -146,14 +146,14 @@ namespace SevenZip.Compression.RangeCoder
 
 		public void CloseStream()
 		{
-			Stream.Close();
+			Stream!.Close();
 		}
 
 		public void Normalize()
 		{
 			while (Range < kTopValue)
 			{
-				Code = (Code << 8) | (byte)Stream.ReadByte();
+				Code = (Code << 8) | (byte)Stream!.ReadByte();
 				Range <<= 8;
 			}
 		}
@@ -162,7 +162,7 @@ namespace SevenZip.Compression.RangeCoder
 		{
 			if (Range < kTopValue)
 			{
-				Code = (Code << 8) | (byte)Stream.ReadByte();
+				Code = (Code << 8) | (byte)Stream!.ReadByte();
 				Range <<= 8;
 			}
 		}
@@ -201,7 +201,7 @@ namespace SevenZip.Compression.RangeCoder
 
 				if (range < kTopValue)
 				{
-					code = (code << 8) | (byte)Stream.ReadByte();
+					code = (code << 8) | (byte)Stream!.ReadByte();
 					range <<= 8;
 				}
 			}

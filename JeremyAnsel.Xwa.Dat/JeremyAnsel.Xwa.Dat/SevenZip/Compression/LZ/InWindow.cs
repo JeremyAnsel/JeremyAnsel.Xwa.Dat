@@ -6,8 +6,8 @@ namespace SevenZip.Compression.LZ
 {
 	internal class InWindow
 	{
-		public byte[] _bufferBase = null; // pointer to buffer with data
-		System.IO.Stream _stream;
+		public byte[]? _bufferBase = null; // pointer to buffer with data
+		System.IO.Stream? _stream;
         uint _posLimit; // offset (from _buffer) of first byte when new block reading must be done
 		bool _streamEndWasReached; // if (true) then _streamPos shows real end of stream
 
@@ -32,7 +32,7 @@ namespace SevenZip.Compression.LZ
 
 			// check negative offset ????
 			for (uint i = 0; i < numBytes; i++)
-				_bufferBase[i] = _bufferBase[offset + i];
+				_bufferBase![i] = _bufferBase[offset + i];
 			_bufferOffset -= offset;
 		}
 
@@ -45,7 +45,7 @@ namespace SevenZip.Compression.LZ
 				int size = (int)((0 - _bufferOffset) + _blockSize - _streamPos);
 				if (size == 0)
 					return;
-				int numReadBytes = _stream.Read(_bufferBase, (int)(_bufferOffset + _streamPos), size);
+				int numReadBytes = _stream!.Read(_bufferBase!, (int)(_bufferOffset + _streamPos), size);
 				if (numReadBytes == 0)
 				{
 					_posLimit = _streamPos;
@@ -78,7 +78,7 @@ namespace SevenZip.Compression.LZ
 			_pointerToLastSafePosition = _blockSize - keepSizeAfter;
 		}
 
-		public void SetStream(System.IO.Stream stream) { _stream = stream; }
+		public void SetStream(System.IO.Stream? stream) { _stream = stream; }
 		public void ReleaseStream() { _stream = null; }
 
 		public void Init()
@@ -102,7 +102,7 @@ namespace SevenZip.Compression.LZ
 			}
 		}
 
-		public byte GetIndexByte(int index) { return _bufferBase[_bufferOffset + _pos + index]; }
+		public byte GetIndexByte(int index) { return _bufferBase![_bufferOffset + _pos + index]; }
 
 		// index + limit have not to exceed _keepSizeAfter;
 		public uint GetMatchLen(int index, uint distance, uint limit)
@@ -115,7 +115,7 @@ namespace SevenZip.Compression.LZ
             uint pby = _bufferOffset + _pos + (uint)index;
 
             uint i;
-			for (i = 0; i < limit && _bufferBase[pby + i] == _bufferBase[pby + i - distance]; i++) ;
+			for (i = 0; i < limit && _bufferBase![pby + i] == _bufferBase[pby + i - distance]; i++) ;
 			return i;
 		}
 

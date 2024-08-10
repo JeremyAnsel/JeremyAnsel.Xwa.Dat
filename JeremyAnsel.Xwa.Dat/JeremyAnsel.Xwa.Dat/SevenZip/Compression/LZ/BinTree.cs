@@ -10,8 +10,8 @@ namespace SevenZip.Compression.LZ
         uint _cyclicBufferSize = 0;
         uint _matchMaxLen;
 
-        uint[] _son;
-        uint[] _hash;
+        uint[]? _son;
+        uint[]? _hash;
 
         uint _cutValue = 0xFF;
         uint _hashMask;
@@ -48,14 +48,14 @@ namespace SevenZip.Compression.LZ
 			}
 		}
 
-		public new void SetStream(System.IO.Stream stream) { base.SetStream(stream); }
+		public new void SetStream(System.IO.Stream? stream) { base.SetStream(stream); }
 		public new void ReleaseStream() { base.ReleaseStream(); }
 
 		public new void Init()
 		{
 			base.Init();
 			for (uint i = 0; i < _hashSizeSum; i++)
-				_hash[i] = kEmptyHashValue;
+				_hash![i] = kEmptyHashValue;
 			_cyclicBufferPos = 0;
 			ReduceOffsets(-1);
 		}
@@ -138,16 +138,16 @@ namespace SevenZip.Compression.LZ
 
 			if (HASH_ARRAY)
 			{
-                uint temp = CRC.Table[_bufferBase[cur]] ^ _bufferBase[cur + 1];
+                uint temp = CRC.Table[_bufferBase![cur]] ^ _bufferBase[cur + 1];
 				hash2Value = temp & (kHash2Size - 1);
 				temp ^= ((uint)(_bufferBase[cur + 2]) << 8);
 				hash3Value = temp & (kHash3Size - 1);
 				hashValue = (temp ^ (CRC.Table[_bufferBase[cur + 3]] << 5)) & _hashMask;
 			}
 			else
-				hashValue = _bufferBase[cur] ^ ((uint)(_bufferBase[cur + 1]) << 8);
+				hashValue = _bufferBase![cur] ^ ((uint)(_bufferBase[cur + 1]) << 8);
 
-            uint curMatch = _hash[kFixHashSize + hashValue];
+            uint curMatch = _hash![kFixHashSize + hashValue];
 			if (HASH_ARRAY)
 			{
                 uint curMatch2 = _hash[hash2Value];
@@ -203,7 +203,7 @@ namespace SevenZip.Compression.LZ
 			{
 				if (curMatch <= matchMinPos || count-- == 0)
 				{
-					_son[ptr0] = _son[ptr1] = kEmptyHashValue;
+					_son![ptr0] = _son[ptr1] = kEmptyHashValue;
 					break;
 				}
                 uint delta = _pos - curMatch;
@@ -224,7 +224,7 @@ namespace SevenZip.Compression.LZ
 						distances[offset++] = delta - 1;
 						if (len == lenLimit)
 						{
-							_son[ptr1] = _son[cyclicPos];
+							_son![ptr1] = _son[cyclicPos];
 							_son[ptr0] = _son[cyclicPos + 1];
 							break;
 						}
@@ -232,14 +232,14 @@ namespace SevenZip.Compression.LZ
 				}
 				if (_bufferBase[pby1 + len] < _bufferBase[cur + len])
 				{
-					_son[ptr1] = curMatch;
+					_son![ptr1] = curMatch;
 					ptr1 = cyclicPos + 1;
 					curMatch = _son[ptr1];
 					len1 = len;
 				}
 				else
 				{
-					_son[ptr0] = curMatch;
+					_son![ptr0] = curMatch;
 					ptr0 = cyclicPos;
 					curMatch = _son[ptr0];
 					len0 = len;
@@ -273,18 +273,18 @@ namespace SevenZip.Compression.LZ
 
 				if (HASH_ARRAY)
 				{
-                    uint temp = CRC.Table[_bufferBase[cur]] ^ _bufferBase[cur + 1];
+                    uint temp = CRC.Table[_bufferBase![cur]] ^ _bufferBase[cur + 1];
                     uint hash2Value = temp & (kHash2Size - 1);
-					_hash[hash2Value] = _pos;
+					_hash![hash2Value] = _pos;
 					temp ^= ((uint)(_bufferBase[cur + 2]) << 8);
                     uint hash3Value = temp & (kHash3Size - 1);
 					_hash[kHash3Offset + hash3Value] = _pos;
 					hashValue = (temp ^ (CRC.Table[_bufferBase[cur + 3]] << 5)) & _hashMask;
 				}
 				else
-					hashValue = _bufferBase[cur] ^ ((uint)(_bufferBase[cur + 1]) << 8);
+					hashValue = _bufferBase![cur] ^ ((uint)(_bufferBase[cur + 1]) << 8);
 
-                uint curMatch = _hash[kFixHashSize + hashValue];
+                uint curMatch = _hash![kFixHashSize + hashValue];
 				_hash[kFixHashSize + hashValue] = _pos;
 
                 uint ptr0 = (_cyclicBufferPos << 1) + 1;
@@ -298,7 +298,7 @@ namespace SevenZip.Compression.LZ
 				{
 					if (curMatch <= matchMinPos || count-- == 0)
 					{
-						_son[ptr0] = _son[ptr1] = kEmptyHashValue;
+						_son![ptr0] = _son[ptr1] = kEmptyHashValue;
 						break;
 					}
 
@@ -316,21 +316,21 @@ namespace SevenZip.Compression.LZ
 								break;
 						if (len == lenLimit)
 						{
-							_son[ptr1] = _son[cyclicPos];
+							_son![ptr1] = _son[cyclicPos];
 							_son[ptr0] = _son[cyclicPos + 1];
 							break;
 						}
 					}
 					if (_bufferBase[pby1 + len] < _bufferBase[cur + len])
 					{
-						_son[ptr1] = curMatch;
+						_son![ptr1] = curMatch;
 						ptr1 = cyclicPos + 1;
 						curMatch = _son[ptr1];
 						len1 = len;
 					}
 					else
 					{
-						_son[ptr0] = curMatch;
+						_son![ptr0] = curMatch;
 						ptr0 = cyclicPos;
 						curMatch = _son[ptr0];
 						len0 = len;
@@ -357,8 +357,8 @@ namespace SevenZip.Compression.LZ
 		void Normalize()
 		{
             uint subValue = _pos - _cyclicBufferSize;
-			NormalizeLinks(_son, _cyclicBufferSize * 2, subValue);
-			NormalizeLinks(_hash, _hashSizeSum, subValue);
+			NormalizeLinks(_son!, _cyclicBufferSize * 2, subValue);
+			NormalizeLinks(_hash!, _hashSizeSum, subValue);
 			ReduceOffsets((int)subValue);
 		}
 

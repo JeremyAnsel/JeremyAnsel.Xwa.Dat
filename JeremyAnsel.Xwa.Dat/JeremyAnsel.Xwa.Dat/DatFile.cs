@@ -12,7 +12,7 @@ namespace JeremyAnsel.Xwa.Dat
     {
         private const long Signature = 0x5602235657062357;
 
-        public string FileName { get; private set; }
+        public string? FileName { get; private set; }
 
         public bool HasImagesData { get; private set; }
 
@@ -61,14 +61,19 @@ namespace JeremyAnsel.Xwa.Dat
             return dat;
         }
 
-        public static DatFile FromStream(Stream stream)
+        public static DatFile FromStream(Stream? stream)
         {
             return FromStream(stream, true);
         }
 
         [SuppressMessage("Style", "IDE0017:Simplifier l'initialisation des objets", Justification = "Reviewed.")]
-        public static DatFile FromStream(Stream stream, bool includeImagesData)
+        public static DatFile FromStream(Stream? stream, bool includeImagesData)
         {
+            if (stream is null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
             var dat = new DatFile();
 
             dat.HasImagesData = includeImagesData;
@@ -196,15 +201,20 @@ namespace JeremyAnsel.Xwa.Dat
             return dat;
         }
 
-        public static DatImage GetImageDataById(string fileName, short groupId, short imageId)
+        public static DatImage? GetImageDataById(string fileName, short groupId, short imageId)
         {
             using var filestream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
 
             return GetImageDataById(filestream, groupId, imageId);
         }
 
-        public static DatImage GetImageDataById(Stream stream, short groupId, short imageId)
+        public static DatImage? GetImageDataById(Stream? stream, short groupId, short imageId)
         {
+            if (stream is null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
             using var file = new BinaryReader(stream, Encoding.ASCII, true);
 
             long signature = file.ReadInt64();
@@ -327,8 +337,13 @@ namespace JeremyAnsel.Xwa.Dat
             this.FileName = fileName;
         }
 
-        public void Save(Stream stream)
+        public void Save(Stream? stream)
         {
+            if (stream is null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
             using var file = new BinaryWriter(stream, Encoding.ASCII, true);
 
             file.Write(DatFile.Signature);
@@ -422,7 +437,7 @@ namespace JeremyAnsel.Xwa.Dat
             }
         }
 
-        public DatGroup GetGroupById(short groupId)
+        public DatGroup? GetGroupById(short groupId)
         {
             foreach (var group in this.Groups)
             {
@@ -435,9 +450,9 @@ namespace JeremyAnsel.Xwa.Dat
             return null;
         }
 
-        public DatImage GetImageById(short groupId, short imageId)
+        public DatImage? GetImageById(short groupId, short imageId)
         {
-            DatGroup group = this.GetGroupById(groupId);
+            DatGroup? group = this.GetGroupById(groupId);
 
             if (group == null)
             {

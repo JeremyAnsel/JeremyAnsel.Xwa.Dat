@@ -4,11 +4,11 @@ namespace SevenZip.Compression.LZ
 {
 	internal class OutWindow
 	{
-		byte[] _buffer = null;
+		byte[]? _buffer = null;
 		uint _pos;
 		uint _windowSize = 0;
 		uint _streamPos;
-		System.IO.Stream _stream;
+		System.IO.Stream? _stream;
 
 		public uint TrainSize = 0;
 
@@ -24,7 +24,7 @@ namespace SevenZip.Compression.LZ
 			_streamPos = 0;
 		}
 
-		public void Init(System.IO.Stream stream, bool solid)
+		public void Init(System.IO.Stream? stream, bool solid)
 		{
 			ReleaseStream();
 			_stream = stream;
@@ -48,7 +48,7 @@ namespace SevenZip.Compression.LZ
 				uint curSize = _windowSize - _pos;
 				if (size < curSize)
 					curSize = size;
-				int numReadBytes = stream.Read(_buffer, (int)_pos, (int)curSize);
+				int numReadBytes = stream.Read(_buffer!, (int)_pos, (int)curSize);
 				if (numReadBytes == 0)
 					return false;
 				size -= (uint)numReadBytes;
@@ -71,7 +71,7 @@ namespace SevenZip.Compression.LZ
 			uint size = _pos - _streamPos;
 			if (size == 0)
 				return;
-			_stream.Write(_buffer, (int)_streamPos, (int)size);
+			_stream!.Write(_buffer!, (int)_streamPos, (int)size);
 			if (_pos >= _windowSize)
 				_pos = 0;
 			_streamPos = _pos;
@@ -86,7 +86,7 @@ namespace SevenZip.Compression.LZ
 			{
 				if (pos >= _windowSize)
 					pos = 0;
-				_buffer[_pos++] = _buffer[pos++];
+				_buffer![_pos++] = _buffer[pos++];
 				if (_pos >= _windowSize)
 					Flush();
 			}
@@ -94,7 +94,7 @@ namespace SevenZip.Compression.LZ
 
 		public void PutByte(byte b)
 		{
-			_buffer[_pos++] = b;
+			_buffer![_pos++] = b;
 			if (_pos >= _windowSize)
 				Flush();
 		}
@@ -104,7 +104,7 @@ namespace SevenZip.Compression.LZ
 			uint pos = _pos - distance - 1;
 			if (pos >= _windowSize)
 				pos += _windowSize;
-			return _buffer[pos];
+			return _buffer![pos];
 		}
 	}
 }
