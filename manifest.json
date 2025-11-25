@@ -18,7 +18,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Dat.DatFile.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Dat.DatFile",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -28,7 +32,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Dat.DatGroup.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Dat.DatGroup",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -38,7 +46,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Dat.DatImage.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Dat.DatImage",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -48,7 +60,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Dat.DatImageFormat.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Dat.DatImageFormat",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -58,7 +74,11 @@
           "relative_path": "api/JeremyAnsel.Xwa.Dat.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "JeremyAnsel.Xwa.Dat",
+      "Summary": null
     },
     {
       "type": "Conceptual",
