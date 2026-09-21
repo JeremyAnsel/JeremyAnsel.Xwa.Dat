@@ -45,7 +45,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="JeremyAnsel.BcnSharp" Version="1.0.9">
+    <PackageReference Include="JeremyAnsel.BcnSharp" Version="1.0.10">
       <PrivateAssets>analyzers</PrivateAssets>
     </PackageReference>
     <PackageReference Include="JeremyAnsel.ColorQuant" Version="3.0.75" />
